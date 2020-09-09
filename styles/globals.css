@@ -2,10 +2,68 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+body {
+  background: rgb(161, 161, 161);
+}
+.roomContainer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background: #aca39c;
+}
+.sceneContainer {
+  /*        position: "absolute",
+    top: 0,
+    width: "120%",
+    background: "#FF0000", */
+  position: fixed;
+  left: 0;
+  min-width: 1200px;
+  transform: translateX(-8%);
+  margin: auto;
+  overflow: none;
+  width: 120%;
+  background: black;
+}
+/* under 900 */
+@media only screen and (max-width: 900px) {
+  .sceneContainer {
+    top: -105%;
+  }
+}
+/* under 1100 */
+@media only screen and (max-width: 1100px) {
+  .sceneContainer {
+    top: 0%;
+  }
+}
+/* over 1100 */
+@media only screen and (min-width: 1100px) {
+  .sceneContainer {
+    top: -5%;
+  }
+}
+/* over 1300 */
+@media only screen and (min-width: 1300px) {
+  .sceneContainer {
+    top: -10%;
+  }
+}
+/* over 1450 */
+@media only screen and (min-width: 1450px) {
+  .sceneContainer {
+    top: -20%;
+  }
 }
 
+/* over 1450 */
+@media only screen and (min-width: 1600px) {
+  .sceneContainer {
+    top: -30%;
+  }
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +71,21 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.backgroundRoom {
+  background: url("/images/background.jpg") no-repeat center center;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ */
 }
