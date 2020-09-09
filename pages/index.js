@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Parallax from "parallax-js";
-
+import gsap from "gsap";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -17,9 +17,18 @@ class Home extends Component {
 
   componentDidMount() {
     var scene = document.getElementById("scene");
-
     var parallaxInstance = new Parallax(scene, {
       relativeInput: true,
+    });
+    gsap.from(".pulse", {
+      duration: 1,
+      scale: 0.7,
+      css: {
+        boxShadow: `0 0px 15px 5px #DB007C, inset 0 0px 15px 5px #DB007C`,
+      },
+      repeat: -1,
+      yoyo: true,
+      ease: "circ.inOut",
     });
   }
 
@@ -36,6 +45,7 @@ class Home extends Component {
             <div className="sceneContainer">
               <div>
                 <div
+                  data-pointer-events="true"
                   style={{
                     position: "absolute",
                     top: 0,
@@ -45,7 +55,6 @@ class Home extends Component {
                     margin: "auto",
                   }}
                   id="scene"
-                  data-relative-input="true"
                   data-limit-x="false"
                   /*    data-limit-y="0" */
                   data-scalar-x="20"
@@ -63,6 +72,7 @@ class Home extends Component {
                   }}
                 />
               </div> */}
+
                   <div data-depth="0.5" style={{}}>
                     <img
                       src="images/empty.png"
@@ -72,8 +82,12 @@ class Home extends Component {
                       }}
                     />
                   </div>
-                  <div data-depth="0.4" style={{}}>
+                  <div
+                    /* data-pointer-events="all" */ data-depth="0.4"
+                    style={{}}
+                  >
                     <img
+                      /*  onClick={() => console.log("fuck")} */
                       src="images/floor_01.jpg"
                       style={{
                         width: "calc(100% + 20px)",
@@ -81,6 +95,7 @@ class Home extends Component {
                       }}
                     />
                   </div>
+
                   <div data-depth="0.5" style={{}}>
                     <img
                       src="images/floor_01b.jpg"
@@ -149,7 +164,11 @@ class Home extends Component {
                     />
                   </div>
 
-                  <div style={{ marginTop: "0px" }} data-depth="0.4">
+                  <div
+                    style={{ marginTop: "0px", position: "relative" }}
+                    data-depth="0.4"
+                    data-pointer-events="true"
+                  >
                     <img
                       src="images/front.png"
                       style={{
@@ -157,16 +176,32 @@ class Home extends Component {
                         transform: "translateY(40%)",
                       }}
                     />
+                    <div
+                      className="imacButton"
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        position: "absolute",
+                        top: "94%",
+                        left: "52.3%",
+                        padding: 0,
+                        margin: 0,
+                      }}
+                      onClick={() => console.log("fuck")}
+                    >
+                      <div className="pulse" />
+                    </div>
                   </div>
                   <div style={{ marginTop: "0px" }} data-depth="0.7">
                     <img
                       src="images/lamp.png"
                       style={{
-                        width: "100%",
-                        transform: "translateY(40%);",
+                        width: "120%",
+                        transform: "translateY(30%)",
                       }}
                     />
                   </div>
+
                   <div data-depth="0.5" style={{}}>
                     <img
                       src="images/empty.png"
