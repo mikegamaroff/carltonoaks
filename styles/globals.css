@@ -1,10 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&display=swap");
 html,
 body {
   padding: 0;
   margin: 0;
+  font-family: "Playfair Display", serif;
+  line-height: 2;
 }
 body {
   background: rgb(161, 161, 161);
+}
+h1 {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+}
+video {
+  object-fit: fill;
+}
+.transition {
+  -moz-transition: 0.2s ease-out;
+  -webkit-transition: 0.2s ease-out;
+  -ms-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+}
+.overlay-content-courses,
+.overlay-content,
+.video-container {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 .roomContainer {
   height: 100%;
@@ -26,6 +50,141 @@ body {
   overflow: none;
   width: 120%;
   background: black;
+}
+.overlay-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("/images/golfClub.jpg") no-repeat center center;
+  background-repeat: none;
+  background-size: cover;
+  left: 0;
+  top: 0;
+}
+.overlay-content,
+.overlay-content-courses {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.822);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #102c46;
+  box-shadow: 3px 3px 6px 2px rgba(0, 0, 0, 0.23);
+  z-index: 1;
+}
+.overlay-content {
+  width: 75%;
+  max-width: 1100px;
+  height: 60%;
+  text-align: center;
+}
+.overlay-content-courses {
+  width: 70%;
+  max-width: 1000px;
+  height: auto;
+}
+.video-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  overflow: hidden;
+}
+.zindex2 {
+  z-index: 2;
+}
+
+.zindex3 {
+  z-index: 3;
+}
+
+.video-container video {
+  /* Make video to at least 100% wide and tall */
+  min-width: 100%;
+  min-height: 100%;
+
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto;
+  height: auto;
+  /* Center the video */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.courseBody {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.courseBody,
+.courseBody-header {
+  color: #4cad5b;
+}
+.courseBody-header {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.courseBody li {
+  font-size: 27px;
+}
+.green-line {
+  margin-top: 30px;
+  background-color: #4cad5b;
+  padding: 5px;
+  width: 100%;
+}
+.overlay-logo {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+.overlay-logo img {
+  width: 120px;
+}
+.body-lg {
+  font-size: 22px;
+}
+.blue-text {
+  color: #1b2d50;
+}
+.next {
+  position: absolute;
+  z-index: 4;
+  bottom: 15px;
+  right: 15px;
+}
+.button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: white;
+  font-size: 20px;
+  background-color: #dba15d;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
+  border-radius: 25px;
+  margin: 50px 0 30px 0;
+  width: 200px;
+  text-align: center;
+}
+.button:hover {
+  box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.23);
+  background-color: #f1a957;
 }
 .imacButton,
 .pulse {
