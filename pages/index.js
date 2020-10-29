@@ -47,7 +47,7 @@ class Home extends Component {
   }
 
   reset = () => {
-    this.setState({ cleared: false }, () => {
+    this.setState({ cleared: false, exhibit: 0 }, () => {
       var scene = document.getElementById("scene");
       var parallaxInstance = new Parallax(scene, {
         relativeInput: true,

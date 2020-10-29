@@ -10,7 +10,7 @@ const content1 = (
     <Line />
     <ul>
       <li>Closed 2013</li>
-      <li>10 acres</li>
+      <li>109 acres</li>
       <li>7 years of legal challenges</li>
       <li>Construction began in 2019 on 380 homes</li>
     </ul>
@@ -34,13 +34,16 @@ const content3 = (
 const content4 = <></>;
 const content5 = (
   <>
-    <div className="courseBody-header">Carmel Highlands Gold Course</div>
+    <div className="courseBody-header">Carmel Highlands Golf Course</div>
     <Line />
     <ul>
       <li>Closed 2015</li>
       <li>112 acres</li>
-      <li>536 homes - known as The Junipers</li>
-      <li>3 acre park</li>
+      <li>
+        Proposed Use: Age-qualified community (exclusive to residents age 55+)
+        comprised of 455 homes, 81 low-income apartments, 3-acre public park,
+        3-mile public trail
+      </li>
     </ul>
   </>
 );
@@ -61,12 +64,12 @@ const content8 = <></>;
 const content9 = (
   <>
     {" "}
-    <div className="courseBody-header">Town Park Gold Course</div>
+    <div className="courseBody-header">Town Park Golf Course</div>
     <Line />
     <ul>
       <li>Closed 2019</li>
-      <li>44.57 acres</li>
-      <li>Construct on began in January 2020 on 850 apartments</li>
+      <li>44.57-acre site</li>
+      <li>Construction began in January 2020 on 850 apartments</li>
       <li>Plans include 9-hole, par 3 course</li>
     </ul>
   </>
@@ -77,10 +80,9 @@ const content10 = (
     <Line />
     <ul>
       <li>280 acres</li>
-      <li>Proposed Use Sand Mine</li>
       <li>
-        Future Following 20+ years of mining, new homes and parks will be
-        constructed
+        o Proposed Use: 4,300-unit housing development, with a new trolley
+        station, river park and 1 million square feet of office space
       </li>
     </ul>
   </>
@@ -92,9 +94,9 @@ const content12 = (
     <Line />
     <ul>
       <li>280 acres</li>
-      <li>Proposed Use Sand Mine</li>
+      <li>Proposed Use: Sand Mine</li>
       <li>
-        Future Following 20+ years of mining, new homes and parks will be
+        Future: Following 20+ years of mining, new homes and parks will be
         constructed
       </li>
     </ul>
@@ -115,14 +117,14 @@ const content14 = (
 
 const content15 = (
   <>
-    <div className="courseBody-header">Calrton Oaks Gold Club</div>
+    <div className="courseBody-header">Calrton Oaks Golf Club</div>
     <Line />
     <ul>
       <li>Still open!</li>
       <li>165 acres</li>
       <li>
-        18-hole gold course, with 54 room hotel, clubhouse, event space and
-        driving range
+        Current: 18-hole golf course, with 54 room hotel, clubhouse, event space
+        and driving range
       </li>
     </ul>
   </>
@@ -134,8 +136,12 @@ const content16 = (
     <Line />
     <div className="body-lg blue-text">
       <p>
+        We’re proud to propose a new, redesigned golf course for the public’s
+        use!
+      </p>
+      <p>
         The vision for the reimagined Carlton Oaks Country Club and Resort is to
-        creae an integrated and vibrant community hub with updated amenities,
+        create an integrated and vibrant community hub with updated amenities,
         membership benefits and programming, and homes to preserve this vital
         recreational facility for the benefit of Santee residents and
         businesses.
@@ -150,7 +156,7 @@ const content17 = (
     <Line />
     <div className="body-lg blue-text">
       <p>
-        This partnership with Lennar will allow reinvestment into the propery
+        The partnership with Lennar will allow reinvestment into the property
         and enable us to enhance the onsite amenities and continue to offer
         golf.
       </p>
@@ -170,6 +176,7 @@ export const GolfVideo = (props) => {
   const courseVideo = useRef(null);
   const overlay = useRef(null);
   const nextButton = useRef(null);
+  const overlayContent = useRef(null);
   const [step, setStep] = useState(0);
   const steps = [9, 11, 20, 23, 33, 35, 42.4, 44, 55, 62, 65, 73, 75, 84, 94];
   const skipOverlay = [1, 3, 5, 7, 10, 12];
@@ -195,7 +202,7 @@ export const GolfVideo = (props) => {
         );
       }
     } else if (step === 15 || step === 16) {
-      fadeInOut(overlay.current);
+      fadeInOut(overlayContent.current);
     } else if (step === 17) {
       props.reset(0);
       props.resetIntro();
@@ -248,6 +255,7 @@ export const GolfVideo = (props) => {
       nextButton.current,
       { scale: val, opacity: val },
       {
+        delay: val === 0 ? 3 : 0,
         scale: val === 0 ? 1 : 0,
         opacity: val === 0 ? 1 : 0,
         ease: val === 0 ? "elastic.out(1, 0.3)" : "circ.out",
@@ -318,7 +326,9 @@ export const GolfVideo = (props) => {
         ref={overlay}
         style={{ visibility: "hidden" }}
       >
-        <div className="courseBody">{eval(`content${step}`)}</div>
+        <div className="courseBody" ref={overlayContent}>
+          {eval(`content${step}`)}
+        </div>
       </div>
 
       <video ref={course1} playsInline preload="true">

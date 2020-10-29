@@ -81,8 +81,11 @@ export const Modal = (props) => {
             </div>
           </div>
         </div>
-        <div className="overlay-logo">
-          <img src="images/logo.png" />
+        <div className="overlay-footer">
+          <div className="overlay-logo">
+            <img src="images/logo.png" />
+          </div>
+          <div className="station-title">Station 2 – State of Golf</div>
         </div>
       </div>
     </div>

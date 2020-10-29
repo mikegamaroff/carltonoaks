@@ -75,6 +75,7 @@ video {
   color: #102c46;
   box-shadow: 3px 3px 6px 2px rgba(0, 0, 0, 0.23);
   z-index: 1;
+  padding: 0 40px 0 40px;
 }
 .overlay-content {
   width: 75%;
@@ -134,7 +135,7 @@ video {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  font-size: 60px;
+  font-size: 50px;
   line-height: 1;
   font-weight: 700;
 }
@@ -148,10 +149,21 @@ video {
   padding: 5px;
   width: 100%;
 }
-.overlay-logo {
+.overlay-footer {
   position: absolute;
-  bottom: 15px;
-  left: 15px;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+  padding: 20px;
+}
+.station-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: white;
+  font-size: 25px;
+  text-shadow: 1px 1px 5px #000000a1;
 }
 .overlay-logo img {
   width: 120px;
@@ -161,6 +173,7 @@ video {
 }
 .blue-text {
   color: #1b2d50;
+  text-align: center;
 }
 .next {
   position: absolute;
