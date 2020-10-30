@@ -68,10 +68,10 @@ export const Modal = (props) => {
       <div className="overlay-container zindex2" id="modal" ref={modal}>
         <div className="overlay-content">
           <h1 style={{ marginBottom: 30 }}>
-            Across the county, gold courses are being redeveloped.
+            Across the county, golf courses are being redeveloped.
           </h1>
           <div className="body-lg">
-            From Escondido Country Club and Riverwalk to Cottonwood Gold Course
+            From Escondido Country Club and Riverwalk to Cottonwood Golf Course
             and Carmel Mountain Ranch, new developments are planned where lush
             fairways once were.
           </div>

@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import Parallax from "parallax-js";
 import gsap from "gsap";
 import { Modal } from "../components/Modal";
+import { Exhibit2 } from "../components/Exhibit2";
 
 class Home extends Component {
   constructor(props) {
@@ -24,7 +25,9 @@ class Home extends Component {
   exhibit1 = () => {
     this.setState({ exhibit: 1 });
   };
-
+  exhibit2 = () => {
+    this.setState({ exhibit: 2 });
+  };
   componentDidMount() {
     var scene = document.getElementById("scene");
     var parallaxInstance = new Parallax(scene, {
@@ -47,7 +50,7 @@ class Home extends Component {
   }
 
   reset = () => {
-    this.setState({ cleared: false, exhibit: 0 }, () => {
+    this.setState({ cleared: false }, () => {
       var scene = document.getElementById("scene");
       var parallaxInstance = new Parallax(scene, {
         relativeInput: true,
@@ -88,6 +91,9 @@ class Home extends Component {
               exhibit0={this.exhibit0}
             />
           ) : null}
+          {this.state.exhibit === 2 ? (
+            <Exhibit2 clearScene={this.clearScene} reset={this.reset} />
+          ) : null}
           {!this.state.cleared ? (
             <div className="roomContainer">
               <div className="sceneContainer">
@@ -115,14 +121,13 @@ class Home extends Component {
                   src="images/background.jpg"
                   style={{
                     width: "100%",
-
-
                   }}
                 />
               </div> */}
 
                     <div data-depth="0.5" style={{}}>
                       <img
+                        className="disabled"
                         src="/images/empty.png"
                         style={{
                           width: "100%",
@@ -135,6 +140,7 @@ class Home extends Component {
                       style={{}}
                     >
                       <img
+                        className="disabled"
                         /*  onClick={() => console.log("fuck")} */
                         src="/images/floor_01.jpg"
                         style={{
@@ -146,6 +152,7 @@ class Home extends Component {
 
                     <div data-depth="0.5" style={{}}>
                       <img
+                        className="disabled"
                         src="/images/floor_01b.jpg"
                         style={{
                           width: "calc(100% + 20px)",
@@ -156,16 +163,18 @@ class Home extends Component {
 
                     <div style={{ marginTop: "0px" }} data-depth="0.1">
                       <img
+                        className="disabled"
                         src="/images/golfClub.jpg"
                         style={{
-                          width: "40%",
+                          width: "50%",
 
-                          transform: "translate(75%, 35%)",
+                          transform: "translate(75%, 25%)",
                         }}
                       />
                     </div>
                     <div style={{ marginTop: "0px" }} data-depth="0.4">
                       <img
+                        className="disabled"
                         src="/images/floor_02.jpg"
                         style={{
                           width: "100%",
@@ -175,6 +184,7 @@ class Home extends Component {
                     </div>
                     <div style={{ marginTop: "0px" }} data-depth="0.1">
                       <img
+                        className="disabled"
                         src="/images/ceiling.jpg"
                         style={{
                           width: "100%",
@@ -185,6 +195,7 @@ class Home extends Component {
                     </div>
                     <div style={{ marginTop: "0px" }} data-depth="0.3">
                       <img
+                        className="disabled"
                         src="/images/floor_03.jpg"
                         style={{
                           width: "100%",
@@ -195,6 +206,7 @@ class Home extends Component {
 
                     <div style={{ marginTop: "0px" }} data-depth="0.2">
                       <img
+                        className="disabled"
                         src="/images/backWall.png"
                         style={{
                           width: "100%",
@@ -204,6 +216,7 @@ class Home extends Component {
                     </div>
                     <div style={{ marginTop: "0px" }} data-depth="0.3">
                       <img
+                        className="disabled"
                         src="/images/middle.png"
                         style={{
                           width: "100%",
@@ -213,17 +226,21 @@ class Home extends Component {
                     </div>
 
                     <div
-                      style={{ marginTop: "0px", position: "relative" }}
+                      style={{
+                        marginTop: "0px",
+                        position: "absolute",
+                      }}
                       data-depth="0.4"
-                      data-pointer-events="true"
                     >
                       <img
+                        className="disabled"
                         src="/images/front.png"
                         style={{
                           width: "100%",
                           transform: "translateY(40%)",
                         }}
                       />
+
                       {/*            <div
                         className="imacButton"
                         style={{
@@ -239,6 +256,7 @@ class Home extends Component {
                       >
                         <div className="pulse" />
                       </div> */}
+
                       <div
                         className="imacButton"
                         style={{
@@ -255,8 +273,52 @@ class Home extends Component {
                       >
                         <div className="pulse" />
                       </div>
+                      <div
+                        className="imacButton"
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          position: "absolute",
+                          top: "80%",
+                          left: "40%",
+                          padding: 0,
+                          margin: 0,
+                        }}
+                        onClick={this.exhibit2}
+                      >
+                        <div className="pulse" />
+                      </div>
                     </div>
-                    <div style={{ marginTop: "0px" }} data-depth="0.7">
+                    <div
+                      style={{
+                        marginTop: "0px",
+                        position: "absolute",
+                      }}
+                      data-depth="0.3"
+                    >
+                      <div
+                        className="imacButton"
+                        style={{
+                          transform: "translateY(50%)",
+                          width: "20px",
+                          height: "20px",
+                          position: "absolute",
+                          top: "127%",
+                          left: "40%",
+                          padding: 0,
+                          margin: 0,
+                        }}
+                        onClick={this.Exhibit2}
+                      >
+                        <div className="pulse" />
+                      </div>
+                    </div>
+
+                    <div
+                      className="disabled"
+                      style={{ marginTop: "0px" }}
+                      data-depth="0.7"
+                    >
                       <img
                         src="images/lamp.png"
                         style={{
@@ -266,7 +328,7 @@ class Home extends Component {
                       />
                     </div>
 
-                    <div data-depth="0.5" style={{}}>
+                    <div className="disabled" data-depth="0.5" style={{}}>
                       <img
                         src="images/empty.png"
                         style={{

@@ -76,12 +76,12 @@ const content9 = (
 );
 const content10 = (
   <>
-    <div className="courseBody-header">Cottonwood Golf Club</div>
+    <div className="courseBody-header">Riverwalk Golf Club</div>
     <Line />
     <ul>
-      <li>280 acres</li>
+      <li>200 acres</li>
       <li>
-        o Proposed Use: 4,300-unit housing development, with a new trolley
+        Proposed Use: 4,300-unit housing development, with a new trolley
         station, river park and 1 million square feet of office space
       </li>
     </ul>
@@ -117,7 +117,7 @@ const content14 = (
 
 const content15 = (
   <>
-    <div className="courseBody-header">Calrton Oaks Golf Club</div>
+    <div className="courseBody-header">Carlton Oaks Golf Club</div>
     <Line />
     <ul>
       <li>Still open!</li>
@@ -132,7 +132,7 @@ const content15 = (
 
 const content16 = (
   <>
-    <div className="courseBody-header">Calrton Oaks Country Club & Resort</div>
+    <div className="courseBody-header">Carlton Oaks Country Club & Resort</div>
     <Line />
     <div className="body-lg blue-text">
       <p>
@@ -180,7 +180,12 @@ export const GolfVideo = (props) => {
   const [step, setStep] = useState(0);
   const steps = [9, 11, 20, 23, 33, 35, 42.4, 44, 55, 62, 65, 73, 75, 84, 94];
   const skipOverlay = [1, 3, 5, 7, 10, 12];
+
+  const stepUp = () => {
+    setStep(step + 1);
+  };
   const vidPlay = () => {
+    console.log("step = " + step);
     if (step < 15) {
       course1.current.addEventListener("timeupdate", handleEvent);
       course1.current.addEventListener("timeupdate", buttonTrigger);
@@ -201,7 +206,30 @@ export const GolfVideo = (props) => {
           }
         );
       }
-    } else if (step === 15 || step === 16) {
+    } else if (step === 15) {
+      gsap.fromTo(
+        overlay.current,
+        { scale: 1 },
+        {
+          scale: 0,
+          ease: "circ.inOut",
+          duration: 1,
+          onComplete: stepUp,
+        }
+      );
+      gsap.fromTo(
+        overlay.current,
+        { scale: 0 },
+        {
+          scale: 1,
+          ease: "circ.inOut",
+          duration: 1,
+          delay: 1,
+          onComplete: fadeInOut,
+          onCompleteParams: overlayContent.current,
+        }
+      );
+    } else if (step === 16) {
       fadeInOut(overlayContent.current);
     } else if (step === 17) {
       props.reset(0);
@@ -307,7 +335,6 @@ export const GolfVideo = (props) => {
         );
       }
       setStep(step + 1);
-      console.log("step = " + step);
     }
   };
 
