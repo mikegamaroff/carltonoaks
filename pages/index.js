@@ -3,8 +3,8 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Parallax from "parallax-js";
 import gsap from "gsap";
-import { Modal } from "../components/Modal";
-import { Exhibit2 } from "../components/Exhibit2";
+import Modal from "../components/Modal";
+import Exhibit2 from "../components/Exhibit2";
 
 class Home extends Component {
   constructor(props) {
@@ -27,6 +27,23 @@ class Home extends Component {
   };
   exhibit2 = () => {
     this.setState({ exhibit: 2 });
+  };
+
+  fadeInOut = (obj) => {
+    gsap.to(obj, {
+      opacity: 0,
+      ease: "circ.inOut",
+      duration: 0.3,
+      onComplete: this.fadeOut,
+      onCompleteParams: [obj],
+    });
+  };
+  fadeOut = (obj) => {
+    gsap.to(obj, {
+      opacity: 1,
+      ease: "circ.inOut",
+      duration: 0.3,
+    });
   };
   componentDidMount() {
     var scene = document.getElementById("scene");
@@ -89,10 +106,17 @@ class Home extends Component {
               clearScene={this.clearScene}
               reset={this.reset}
               exhibit0={this.exhibit0}
+              fadeInOut={this.fadeInOut}
+              fadeOut={this.fadeOut}
             />
           ) : null}
           {this.state.exhibit === 2 ? (
-            <Exhibit2 clearScene={this.clearScene} reset={this.reset} />
+            <Exhibit2
+              clearScene={this.clearScene}
+              reset={this.reset}
+              fadeInOut={this.fadeInOut}
+              fadeOut={this.fadeOut}
+            />
           ) : null}
           {!this.state.cleared ? (
             <div className="roomContainer">

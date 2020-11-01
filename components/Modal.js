@@ -1,93 +1,73 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { Component } from "react";
 import gsap from "gsap";
-import { GolfVideo } from "./GolfVideo";
+import GolfVideo from "./GolfVideo";
+import Exhibit2 from "./Exhibit2";
 
-export const Modal = (props) => {
-  const [step, setStep] = useState(0);
-  const modal = useRef(null);
-
-  const clearScene = () => {
-    setStep(-1);
-    props.clearScene();
+class Modal extends Component {
+  constructor(props) {
+    super(props);
+  }
+  state = {
+    step: 1,
   };
 
-  useEffect(() => {
-    if (modal.current && step === 0) {
-      gsap.fromTo(
-        modal.current,
-
-        { scale: 0, display: "none" },
-        {
-          scale: 1,
-          display: "block",
-
-          ease: "circ.inOut",
-          duration: 1,
-          onComplete: clearScene,
-        }
-      );
-    }
-  });
-  const fadeIntro = () => {
+  fadeIntro = () => {
     gsap.to(
-      modal.current,
+      ".modal",
 
       {
         opacity: 0,
         ease: "none",
         duration: 1,
-        onComplete: resetIntro,
+        onComplete: this.resetIntro,
       }
     );
   };
 
-  const resetIntro = () => {
-    gsap.to(
-      modal.current,
+  resetIntro = () => {
+    gsap.to(".modal", {
+      display: "none",
+      ease: "none",
+      duration: 0,
+    });
+    this.setState({ step: this.state.step + 1 });
+  };
+  launchVideo = () => {
+    this.setState({ step: 1 });
+  };
+  launch2 = () => {
+    this.setState({ step: 2 }, () => {
+      console.log(this.state);
+    });
+  };
 
-      {
-        display: "none",
-        ease: "none",
-        duration: 0,
-      }
-    );
-  };
-  const launchVideo = () => {
-    setStep(1);
-  };
-  return (
-    <div>
-      {step === 1 ? (
-        <GolfVideo
-          setStep={setStep}
-          reset={props.reset}
-          resetIntro={resetIntro}
-          exhibit0={props.exhibit0}
-        />
-      ) : null}
-      <div className="overlay-container zindex2" id="modal" ref={modal}>
-        <div className="overlay-content">
-          <h1 style={{ marginBottom: 30 }}>
-            Across the county, golf courses are being redeveloped.
-          </h1>
-          <div className="body-lg">
-            From Escondido Country Club and Riverwalk to Cottonwood Golf Course
-            and Carmel Mountain Ranch, new developments are planned where lush
-            fairways once were.
-          </div>
-          <div>
-            <div className="button transition" onClick={launchVideo}>
-              EXPLORE
-            </div>
-          </div>
-        </div>
-        <div className="overlay-footer">
-          <div className="overlay-logo">
-            <img src="images/logo.png" />
-          </div>
-          <div className="station-title">Station 2 – State of Golf</div>
-        </div>
+  render() {
+    return (
+      <div>
+        {this.state.step === 1 ? (
+          <GolfVideo
+            launch2={this.launch2}
+            clearScene={this.props.clearScene}
+            reset={this.props.reset}
+            resetIntro={this.resetIntro}
+            exhibit0={this.props.exhibit0}
+            fadeInOut={this.props.fadeInOut}
+            fadeOut={this.props.fadeOut}
+          />
+        ) : null}
+        {this.state.step === 2 ? (
+          <Exhibit2
+            clearScene={this.props.clearScene}
+            reset={this.props.reset}
+            resetIntro={this.resetIntro}
+            exhibit0={this.props.exhibit0}
+            fadeInOut={this.props.fadeInOut}
+            fadeOut={this.props.fadeOut}
+          />
+        ) : null}
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
+
+export default Modal;

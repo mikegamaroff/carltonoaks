@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { Component } from "react";
 import { Line } from "./AnimLine";
 import gsap from "gsap";
 import _ from "lodash";
-
+const content = <></>;
 const content0 = <></>;
 const content1 = (
   <>
@@ -171,119 +171,148 @@ const content17 = (
 const content18 = <></>;
 let open = false;
 let buttonStep = 0;
-export const GolfVideo = (props) => {
-  const course1 = useRef(null);
-  const courseVideo = useRef(null);
-  const overlay = useRef(null);
-  const nextButton = useRef(null);
-  const overlayContent = useRef(null);
-  const [step, setStep] = useState(0);
-  const steps = [9, 11, 20, 23, 33, 35, 42.4, 44, 55, 62, 65, 73, 75, 84, 94];
-  const skipOverlay = [1, 3, 5, 7, 10, 12];
-
-  const stepUp = () => {
-    setStep(step + 1);
+const steps = [9, 11, 20, 23, 33, 35, 42.4, 44, 55, 62, 65, 73, 75, 84, 94];
+const skipOverlay = [1, 3, 5, 7, 10, 12];
+class GolfVideo extends Component {
+  constructor(props) {
+    super(props);
+    this.course1 = React.createRef();
+    this.courseVideo = React.createRef();
+    this.overlay = React.createRef();
+    this.overlayContent = React.createRef();
+    this.nextButton = React.createRef();
+  }
+  state = {
+    step: 0,
   };
-  const vidPlay = () => {
-    console.log("step = " + step);
-    if (step < 15) {
-      course1.current.addEventListener("timeupdate", handleEvent);
-      course1.current.addEventListener("timeupdate", buttonTrigger);
-      course1.current.play();
+
+  stepUp = () => {
+    this.setState({ step: this.state.step + 1 });
+  };
+  fadeInOut = (obj) => {
+    gsap.to(obj, {
+      opacity: 0,
+      ease: "circ.inOut",
+      duration: 0.3,
+      onComplete: this.fadeOut,
+      onCompleteParams: [obj],
+    });
+  };
+  fadeOut = (obj) => {
+    this.setState({ step: this.state.step + 1 }, () => {
+      gsap.to(obj, {
+        opacity: 1,
+        ease: "circ.inOut",
+        duration: 0.3,
+      });
+    });
+  };
+
+  vidPlay = () => {
+    console.log("step = " + this.state.step);
+    if (this.state.step < 15) {
+      this.course1.current.addEventListener("timeupdate", this.handleEvent);
+      this.course1.current.addEventListener("timeupdate", this.buttonTrigger);
+      this.course1.current.play();
       if (buttonStep > 0) {
-        buttonFade(1);
+        this.buttonFade(1);
       }
 
-      if (step > 0 && open) {
+      if (this.state.step > 0 && open) {
         gsap.fromTo(
-          overlay.current,
+          this.overlay.current,
           { scale: 1 },
           {
             scale: 0,
             ease: "circ.inOut",
             duration: 1,
-            onComplete: setOverlayState,
+            onComplete: this.setOverlayState,
           }
         );
       }
-    } else if (step === 15) {
+    } else if (this.state.step === 15) {
       gsap.fromTo(
-        overlay.current,
+        this.overlay.current,
         { scale: 1 },
         {
           scale: 0,
           ease: "circ.inOut",
           duration: 1,
-          onComplete: stepUp,
+          onComplete: this.fadeInOut,
+          onCompleteParams: this.overlayContent.current,
         }
       );
       gsap.fromTo(
-        overlay.current,
+        this.overlay.current,
         { scale: 0 },
         {
           scale: 1,
           ease: "circ.inOut",
           duration: 1,
           delay: 1,
-          onComplete: fadeInOut,
-          onCompleteParams: overlayContent.current,
+          /*    */
         }
       );
-    } else if (step === 16) {
-      fadeInOut(overlayContent.current);
-    } else if (step === 17) {
-      props.reset(0);
-      props.resetIntro();
-      buttonStep = 0;
-
-      gsap.to(courseVideo.current, {
-        scale: 0,
-        ease: "circ.out",
-        duration: 0.3,
-        onComplete: props.exhibit0,
-      });
+    } else if (this.state.step === 16) {
+      this.fadeInOut(this.overlayContent.current);
+    } else if (this.state.step === 17) {
+      console.log("------ " + this.state.step);
+      gsap.fromTo(
+        this.overlay.current,
+        { scale: 1 },
+        {
+          scale: 0,
+          ease: "circ.inOut",
+          duration: 1,
+          onComplete: this.props.launch2,
+        }
+      );
     }
   };
-
-  useEffect(() => {
-    if (courseVideo.current && step === 0) {
+  launchVideo = () => {
+    this.setState({ videoOn: true }, () => {
       gsap.fromTo(
-        courseVideo.current,
+        this.courseVideo.current,
         { scale: 0, visibility: "hidden" },
         { scale: 1, visibility: "visible", ease: "circ.inOut", duration: 0.5 }
       );
-      vidPlay();
+
+      this.vidPlay();
+    });
+  };
+
+  clearScene = () => {
+    // this.setState({ step: -1 });
+    this.props.clearScene();
+  };
+
+  componentDidMount() {
+    if (this.state.step === 0) {
+      gsap.fromTo(
+        ".modal",
+        { scale: 0, display: "none" },
+        {
+          scale: 1,
+          display: "block",
+
+          ease: "circ.inOut",
+          duration: 1,
+          onComplete: this.clearScene,
+        }
+      );
     }
-  });
+  }
 
-  const fadeInOut = (obj) => {
-    gsap.to(obj, {
-      opacity: 0,
-      ease: "circ.inOut",
-      duration: 0.3,
-      onComplete: fadeOut,
-      onCompleteParams: [obj],
-    });
-  };
-  const fadeOut = (obj) => {
-    setStep(step + 1);
-    gsap.to(obj, {
-      opacity: 1,
-      ease: "circ.inOut",
-      duration: 0.3,
-    });
-  };
-
-  const setOverlayState = () => {
+  setOverlayState = () => {
     open = !open;
   };
 
-  const buttonFade = (val) => {
+  buttonFade = (val) => {
     gsap.fromTo(
-      nextButton.current,
+      this.nextButton.current,
       { scale: val, opacity: val },
       {
-        delay: val === 0 ? 3 : 0,
+        delay: val === 0 ? /* 3 */ 0 : 0,
         scale: val === 0 ? 1 : 0,
         opacity: val === 0 ? 1 : 0,
         ease: val === 0 ? "elastic.out(1, 0.3)" : "circ.out",
@@ -291,11 +320,14 @@ export const GolfVideo = (props) => {
       }
     );
   };
-  const buttonTrigger = (e) => {
-    console.log(course1.current.currentTime);
-    if (course1.current.currentTime >= steps[buttonStep]) {
-      buttonFade(0);
-      course1.current.removeEventListener("timeupdate", buttonTrigger);
+  buttonTrigger = (e) => {
+    console.log(this.course1.current.currentTime);
+    if (this.course1.current.currentTime >= steps[buttonStep]) {
+      this.buttonFade(0);
+      this.course1.current.removeEventListener(
+        "timeupdate",
+        this.buttonTrigger
+      );
       buttonStep = buttonStep + 1;
     }
 
@@ -315,52 +347,86 @@ export const GolfVideo = (props) => {
     } */
   };
 
-  const handleEvent = (e) => {
-    if (course1.current.currentTime >= steps[step]) {
-      course1.current.pause();
-      course1.current.removeEventListener("timeupdate", handleEvent);
+  handleEvent = (e) => {
+    if (this.course1.current.currentTime >= steps[this.state.step]) {
+      this.course1.current.pause();
+      this.course1.current.removeEventListener("timeupdate", this.handleEvent);
 
       /*  console.log(!_.includes(skipOverlay, step)); */
-      if (!_.includes(skipOverlay, step) && !open) {
+      if (!_.includes(skipOverlay, this.state.step) && !open) {
         gsap.fromTo(
-          overlay.current,
+          this.overlay.current,
           { scale: 0, visibility: "hidden" },
           {
             scale: 1,
             visibility: "visible",
             ease: "circ.inOut",
             duration: 0.5,
-            onComplete: setOverlayState,
+            onComplete: this.setOverlayState,
           }
         );
       }
-      setStep(step + 1);
+      this.setState({ step: this.state.step + 1 });
     }
   };
 
-  return (
-    <div className="video-container zindex3" ref={courseVideo}>
-      <div
-        style={{ opacity: 0 }}
-        className="button next"
-        onClick={vidPlay}
-        ref={nextButton}
-      >
-        Next
-      </div>
-      <div
-        className="overlay-content-courses"
-        ref={overlay}
-        style={{ visibility: "hidden" }}
-      >
-        <div className="courseBody" ref={overlayContent}>
-          {eval(`content${step}`)}
-        </div>
-      </div>
+  render() {
+    return (
+      <div>
+        <div className="overlay-container zindex2 modal">
+          <div className="overlay-content">
+            <h1 style={{ marginBottom: 30 }}>
+              Across the county, golf courses are being redeveloped.
+            </h1>
+            <div className="body-lg">
+              From Escondido Country Club and Riverwalk to Cottonwood Golf
+              Course and Carmel Mountain Ranch, new developments are planned
+              where lush fairways once were.
+            </div>
+            <div>
+              <div className="button transition" onClick={this.launchVideo}>
+                EXPLORE
+              </div>
+            </div>
+          </div>
 
-      <video ref={course1} playsInline preload="true">
-        <source type="video/mp4" src="/images/video/CarltonOaksFull.mp4" />
-      </video>
-    </div>
-  );
-};
+          <div className="overlay-footer">
+            <div className="overlay-logo">
+              <img src="images/logo.png" />
+            </div>
+            <div className="station-title">Station 2 – State of Golf</div>
+          </div>
+        </div>
+        {this.state.videoOn ? (
+          <div className="video-container zindex3" ref={this.courseVideo}>
+            <div
+              style={{ opacity: 0 }}
+              className="button next"
+              ref={this.nextButton}
+              onClick={this.vidPlay}
+            >
+              Next
+            </div>
+            <div
+              className="overlay-content-courses"
+              ref={this.overlay}
+              style={{ visibility: "hidden" }}
+            >
+              <div className="courseBody" ref={this.overlayContent}>
+                {eval(`content${this.state.step}`)}
+              </div>
+            </div>
+
+            <video playsInline preload="true" ref={this.course1}>
+              <source
+                type="video/mp4"
+                src="/images/video/CarltonOaksFull.mp4"
+              />
+            </video>
+          </div>
+        ) : null}
+      </div>
+    );
+  }
+}
+export default GolfVideo;
