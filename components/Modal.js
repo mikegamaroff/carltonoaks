@@ -12,16 +12,12 @@ class Modal extends Component {
   };
 
   fadeIntro = () => {
-    gsap.to(
-      ".modal",
-
-      {
-        opacity: 0,
-        ease: "none",
-        duration: 1,
-        onComplete: this.resetIntro,
-      }
-    );
+    gsap.to(".modal", {
+      opacity: 0,
+      ease: "none",
+      duration: 1,
+      onComplete: this.resetIntro,
+    });
   };
 
   resetIntro = () => {
@@ -32,9 +28,7 @@ class Modal extends Component {
     });
     this.setState({ step: this.state.step + 1 });
   };
-  launchVideo = () => {
-    this.setState({ step: 1 });
-  };
+
   launch2 = () => {
     this.setState({ step: 2 }, () => {
       console.log(this.state);
@@ -56,14 +50,17 @@ class Modal extends Component {
           />
         ) : null}
         {this.state.step === 2 ? (
-          <Exhibit2
-            clearScene={this.props.clearScene}
-            reset={this.props.reset}
-            resetIntro={this.resetIntro}
-            exhibit0={this.props.exhibit0}
-            fadeInOut={this.props.fadeInOut}
-            fadeOut={this.props.fadeOut}
-          />
+          <div>
+            {console.log(this.fadeIntro)}
+            <Exhibit2
+              clearScene={this.props.clearScene}
+              reset={this.props.reset}
+              fadeIntro={this.fadeIntro}
+              exhibit0={this.props.exhibit0}
+              fadeInOut={this.props.fadeInOut}
+              fadeOut={this.props.fadeOut}
+            />
+          </div>
         ) : null}
       </div>
     );

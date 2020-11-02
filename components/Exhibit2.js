@@ -9,7 +9,8 @@ const subcontentText3 =
   "The redesigned course would reduce water usage to approximately 205,000 gallons per day, saving 97 million gallons of water per year.";
 const subcontentText4 =
   "Carlton Oaks currently utilizes a 30-year old block irrigation system.";
-
+const subcontentText5 =
+  "The redesigned course reduces turf irrigation to 66 acres, and will install a modern irrigation system to maximize efficiency.";
 let stage = 0;
 const modalContent1 = {
   content: (
@@ -18,7 +19,7 @@ const modalContent1 = {
         Carlton Oaks isn't immune to market constraints.
       </h1>
       <div className="body-lg">
-        Escalating operation, labor and maintenance costs have made it
+        Escalating operational, labor and maintenance costs have made it
         increasingly difficult to maintain the course at the level that was once
         possible and at the level players expect.
       </div>
@@ -60,6 +61,7 @@ class Exhibit2 extends Component {
     this.props.clearScene();
   };
   componentDidMount() {
+    console.log(this.props);
     if (this.state.step === 0) {
       gsap.fromTo(
         ".exhibit2",
@@ -171,6 +173,14 @@ class Exhibit2 extends Component {
   };
   seq4 = () => {
     this.fadeInOut(".subcontent", 3);
+    gsap.to(".infoBlockAnim3", {
+      opacity: 0,
+      delay: 3,
+      onComplete: this.seq5,
+    });
+  };
+  seq5 = () => {
+    this.fadeInOut(".subcontent", 3);
     gsap.fromTo(
       ".infoBlockAnim3",
       {
@@ -185,12 +195,19 @@ class Exhibit2 extends Component {
         delay: 3,
         ease: "circ.inOut",
         duration: 1,
-        onComplete: this.seq5,
+        onComplete: this.seq6,
       }
     );
   };
-
-  seq5 = () => {
+  seq6 = () => {
+    this.fadeInOut(".subcontent", 3);
+    gsap.to(".infoBlockAnim3", {
+      opacity: 1,
+      delay: 3,
+      onComplete: this.seq7,
+    });
+  };
+  seq7 = () => {
     this.fadeOut(".infoBlockAnim1", 3.1);
     this.fadeOut(".infoBlockAnim2", 3.2);
     this.fadeOut(".infoBlockAnim3", 3.3);
@@ -212,10 +229,10 @@ class Exhibit2 extends Component {
       delay: 3,
       ease: "circ.inOut",
       duration: 1,
-      onComplete: this.seq6,
+      onComplete: this.seq8,
     });
   };
-  seq6 = () => {
+  seq8 = () => {
     this.setState({ modalContent: modalContent2 });
 
     gsap.to(".content", {
@@ -225,6 +242,34 @@ class Exhibit2 extends Component {
       duration: 1,
     });
   };
+
+  fadeIntro = () => {
+    this.props.reset();
+    this.setState({ step: 0 }, () => {
+      gsap.to(
+        ".exhibit2",
+
+        {
+          scale: 0,
+          display: "none",
+          ease: "circ.inOut",
+          duration: 1,
+          onComplete: this.props.exhibit0,
+        }
+      );
+    });
+  };
+
+  resetIntro = () => {
+    gsap.to(".modal", {
+      display: "none",
+      ease: "none",
+      duration: 0,
+      onComplete: this.props.reset,
+    });
+    this.setState({ step: 0 });
+  };
+
   render() {
     return (
       <div>
@@ -253,7 +298,10 @@ class Exhibit2 extends Component {
             <div className="center-content content">
               {this.state.modalContent.content}
               <div className="center-content">
-                <div className="button transition" onClick={this.seq1}>
+                <div
+                  className="button transition"
+                  onClick={this.state.step < 2 ? this.fadeIntro : this.seq1}
+                >
                   {this.state.modalContent.buttonText}
                 </div>
               </div>

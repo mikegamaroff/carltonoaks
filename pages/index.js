@@ -5,7 +5,7 @@ import Parallax from "parallax-js";
 import gsap from "gsap";
 import Modal from "../components/Modal";
 import Exhibit2 from "../components/Exhibit2";
-
+import GolfVideo from "../components/GolfVideo";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +21,7 @@ class Home extends Component {
   };
   exhibit0 = () => {
     this.setState({ exhibit: 0 });
+    console.log("fuck " + this.state.exhibit);
   };
   exhibit1 = () => {
     this.setState({ exhibit: 1 });
@@ -45,6 +46,7 @@ class Home extends Component {
       duration: 0.3,
     });
   };
+
   componentDidMount() {
     var scene = document.getElementById("scene");
     var parallaxInstance = new Parallax(scene, {
@@ -102,9 +104,10 @@ class Home extends Component {
             <GolfVideo />
           </div>*/}
           {this.state.exhibit === 1 ? (
-            <Modal
+            <GolfVideo
               clearScene={this.clearScene}
               reset={this.reset}
+              fadeIntro={this.fadeIntro}
               exhibit0={this.exhibit0}
               fadeInOut={this.fadeInOut}
               fadeOut={this.fadeOut}
@@ -114,6 +117,7 @@ class Home extends Component {
             <Exhibit2
               clearScene={this.clearScene}
               reset={this.reset}
+              exhibit0={this.exhibit0}
               fadeInOut={this.fadeInOut}
               fadeOut={this.fadeOut}
             />
@@ -313,7 +317,7 @@ class Home extends Component {
                         <div className="pulse" />
                       </div>
                     </div>
-                    <div
+                    {/*           <div
                       style={{
                         marginTop: "0px",
                         position: "absolute",
@@ -332,12 +336,12 @@ class Home extends Component {
                           padding: 0,
                           margin: 0,
                         }}
-                        onClick={this.Exhibit2}
+                        onClick={this.exhibit2}
                       >
                         <div className="pulse" />
                       </div>
                     </div>
-
+ */}
                     <div
                       className="disabled"
                       style={{ marginTop: "0px" }}
