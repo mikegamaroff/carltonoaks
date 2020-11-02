@@ -109,6 +109,7 @@ class Home extends Component {
               reset={this.reset}
               fadeIntro={this.fadeIntro}
               exhibit0={this.exhibit0}
+              exhibit2={this.exhibit2}
               fadeInOut={this.fadeInOut}
               fadeOut={this.fadeOut}
             />

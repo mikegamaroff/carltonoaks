@@ -300,7 +300,7 @@ class Exhibit2 extends Component {
               <div className="center-content">
                 <div
                   className="button transition"
-                  onClick={this.state.step < 2 ? this.fadeIntro : this.seq1}
+                  onClick={this.state.step > 1 ? this.fadeIntro : this.seq1}
                 >
                   {this.state.modalContent.buttonText}
                 </div>

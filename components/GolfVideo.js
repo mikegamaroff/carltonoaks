@@ -264,7 +264,7 @@ class GolfVideo extends Component {
           scale: 0,
           ease: "circ.inOut",
           duration: 1,
-          onComplete: this.props.launch2,
+          onComplete: this.props.exhibit2,
         }
       );
     }

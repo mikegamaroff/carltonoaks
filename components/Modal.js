@@ -29,12 +29,6 @@ class Modal extends Component {
     this.setState({ step: this.state.step + 1 });
   };
 
-  launch2 = () => {
-    this.setState({ step: 2 }, () => {
-      console.log(this.state);
-    });
-  };
-
   render() {
     return (
       <div>
