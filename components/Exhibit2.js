@@ -14,7 +14,7 @@ const subcontentText5 =
 let stage = 0;
 const modalContent1 = {
   content: (
-    <>
+    <div>
       <h1 style={{ marginBottom: 30 }}>
         Carlton Oaks isn't immune to market constraints.
       </h1>
@@ -23,13 +23,13 @@ const modalContent1 = {
         increasingly difficult to maintain the course at the level that was once
         possible and at the level players expect.
       </div>
-    </>
+    </div>
   ),
   buttonText: "LEARN MORE",
 };
 const modalContent2 = {
   content: (
-    <>
+    <div>
       <div className="body-lg">
         <p>
           The redesign of the course and improvements to the irrigation system
@@ -41,7 +41,7 @@ const modalContent2 = {
           preservation of the golf course.
         </p>
       </div>
-    </>
+    </div>
   ),
   buttonText: "BACK TO LOBBY",
 };
@@ -61,10 +61,9 @@ class Exhibit2 extends Component {
     this.props.clearScene();
   };
   componentDidMount() {
-    console.log(this.props);
     if (this.state.step === 0) {
       gsap.fromTo(
-        ".exhibit2",
+        ".whitePanel",
         { scale: 0, display: "none" },
         {
           scale: 1,
@@ -128,7 +127,7 @@ class Exhibit2 extends Component {
   seq2 = () => {
     gsap.to(".subcontent", {
       opacity: 1,
-      display: "block",
+      display: "flex",
       ease: "circ.inOut",
       duration: 1,
     });
@@ -237,7 +236,7 @@ class Exhibit2 extends Component {
 
     gsap.to(".content", {
       opacity: 1,
-      display: "block",
+      display: "flex",
       ease: "circ.inOut",
       duration: 1,
     });
@@ -297,7 +296,7 @@ class Exhibit2 extends Component {
             </div>
             <div className="center-content content">
               {this.state.modalContent.content}
-              <div className="center-content">
+              <div>
                 <div
                   className="button transition"
                   onClick={this.state.step > 1 ? this.fadeIntro : this.seq1}
