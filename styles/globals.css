@@ -20,12 +20,16 @@ video {
 .disabled {
   pointer-events: none;
 }
-.center-content {
+
+.center-content,
+.center-vertical {
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-
+}
+.center-content {
+  flex-direction: column;
+  position: relative;
   height: 100%;
 }
 .transition {
@@ -88,7 +92,21 @@ video {
   z-index: 1;
   padding: 0 40px 0 40px;
 }
-
+.grid-top {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  margin-top: -80px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  text-shadow: 1px 1px 5px #000000a1;
+}
+.subcontent-image img {
+  height: 100px;
+}
 .infoGraphic-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

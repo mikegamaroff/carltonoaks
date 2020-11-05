@@ -33,17 +33,15 @@ let stage = 0;
 const modalContent1 = {
   content: (
     <div>
-      {/*   <h1 style={{ marginBottom: 30 }}>
-        Carlton Oaks isn't immune to market constraints.
-      </h1> */}
+      <h1 style={{ marginBottom: 30 }}>
+        There are many important factors that have to be analyzed prior to
+        preparing a site plan.
+      </h1>
       <div className="body-lg">
         <p>
-          Escalating operational, labor and maintenance costs have made it
-          increasingly difficult to maintain the course at the level that was
-          once possible and at the level players expect.
-        </p>
-        <p>
-          These factors have led us to explore ways to keep the course viable.
+          This vision for Carlton Oaks is the result of numerous technical
+          studies, conversations with the City, market analysis, and preliminary
+          community engagement.
         </p>
       </div>
     </div>
@@ -68,7 +66,7 @@ const modalContent2 = {
   buttonText: "BACK TO LOBBY",
 };
 
-class Exhibit2 extends Component {
+class Station3 extends Component {
   constructor(props) {
     super(props);
   }
@@ -85,7 +83,7 @@ class Exhibit2 extends Component {
   componentDidMount() {
     if (this.state.step === 0) {
       gsap.fromTo(
-        ".whitePanel",
+        ".modal",
         { scale: 0, display: "none" },
         {
           scale: 1,
@@ -307,7 +305,7 @@ class Exhibit2 extends Component {
   render() {
     return (
       <div>
-        <div className="overlay-container zindex2 exhibit2" id="modal">
+        <div className="overlay-container zindex2 modal">
           <div>
             <div className="infoGraphic-grid" style={{ width: "90%" }}>
               <div className="grid-top">Did you know?</div>
@@ -359,4 +357,4 @@ class Exhibit2 extends Component {
     );
   }
 }
-export default Exhibit2;
+export default Station3;

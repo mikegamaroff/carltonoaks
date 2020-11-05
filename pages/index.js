@@ -5,6 +5,8 @@ import Parallax from "parallax-js";
 import gsap from "gsap";
 import Modal from "../components/Modal";
 import Exhibit2 from "../components/Exhibit2";
+import Station3 from "../components/Station3";
+
 import GolfVideo from "../components/GolfVideo";
 class Home extends Component {
   constructor(props) {
@@ -29,7 +31,9 @@ class Home extends Component {
   exhibit2 = () => {
     this.setState({ exhibit: 2 });
   };
-
+  launchStation3 = () => {
+    this.setState({ station: 3 });
+  };
   fadeInOut = (obj) => {
     gsap.to(obj, {
       opacity: 0,
@@ -123,6 +127,16 @@ class Home extends Component {
               fadeOut={this.fadeOut}
             />
           ) : null}
+          {this.state.station === 3 ? (
+            <Station3
+              clearScene={this.clearScene}
+              reset={this.reset}
+              exhibit0={this.exhibit0}
+              fadeInOut={this.fadeInOut}
+              fadeOut={this.fadeOut}
+            />
+          ) : null}
+
           {!this.state.cleared ? (
             <div className="roomContainer">
               <div className="sceneContainer">
@@ -314,6 +328,22 @@ class Home extends Component {
                           margin: 0,
                         }}
                         onClick={this.exhibit2}
+                      >
+                        <div className="pulse" />
+                      </div>
+
+                      <div
+                        className="imacButton"
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          position: "absolute",
+                          top: "92%",
+                          left: "53%",
+                          padding: 0,
+                          margin: 0,
+                        }}
+                        onClick={this.launchStation3}
                       >
                         <div className="pulse" />
                       </div>

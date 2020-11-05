@@ -152,7 +152,7 @@ const content16 = (
 
 const content17 = (
   <>
-    <div className="courseBody-header">Calrton Oaks Country Club & Resort</div>
+    <div className="courseBody-header">Carlton Oaks Country Club & Resort</div>
     <Line />
     <div className="body-lg blue-text">
       <p>
