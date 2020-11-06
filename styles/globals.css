@@ -66,15 +66,27 @@ video {
   width: 120%;
   background: black;
 }
-.overlay-container {
+.fullscreen-image,
+.overlay-container,
+.fullscreen-slide {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url("/images/golfClub.jpg") no-repeat center center;
+
   background-repeat: none;
   background-size: cover;
   left: 0;
   top: 0;
+}
+.overlay-container {
+  background: url("/images/golfClub.jpg") no-repeat center center;
+}
+.overlay-full {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.822);
+  cursor: pointer;
 }
 .overlay-content,
 .overlay-content-courses {
@@ -144,9 +156,9 @@ video {
   font-size: 9vw;
 }
 .overlay-content {
-  width: 75%;
+  width: 80%;
   max-width: 1100px;
-  height: 60%;
+  height: auto;
   text-align: center;
 }
 .overlay-content-courses {
@@ -234,8 +246,16 @@ video {
 .overlay-logo img {
   width: 120px;
 }
+.body-sm {
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+}
 .body-lg {
   font-size: 22px;
+}
+.body-lg h1 {
+  font-size: 35px;
 }
 .blue-text {
   color: #1b2d50;
@@ -257,7 +277,7 @@ video {
   cursor: pointer;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
   border-radius: 25px;
-  margin: 50px 0 30px 0;
+  margin: 30px 0 30px 0;
   width: 200px;
   text-align: center;
 }

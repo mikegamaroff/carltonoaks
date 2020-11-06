@@ -1,43 +1,32 @@
 import React, { Component } from "react";
 import gsap from "gsap";
-const subcontentText0 = <></>;
-const subcontentText1 =
-  "Minimum wage has increased roughly $1 per year over the last 5 years. We value our employees and understand the need for change. Yet, increasing costs are a challenge.";
-/* const subcontentText2 =
-  "Audobon International estimates that the average American golf course uses 312,000 gallons of water per day.";
- */ const subcontentText2 = (
-  <div className="center-vertical">
-    <div className="subcontent-image">
-      <img src="/images/water.png" />
-    </div>
-    <div>
-      The redesigned Carlton Oaks Gold Course would reduce water usage by
-      approximately 56%, saving 97 million gallons of water per year.
-    </div>
-  </div>
-);
-const subcontentText3 =
-  "Carlton Oaks currently utilizes an outdated, inefficient block irrigation system.";
-const subcontentText4 = (
-  <div className="center-vertical">
-    <div className="subcontent-image">
-      <img src="/images/faucet.png" />
-    </div>
-    <div>
-      The redesigned course reduces turf irrigation to 66 acres, and will
-      install a modern irrigation system to maximize efficiency.
-    </div>
-  </div>
-);
+
 let stage = 0;
-const modalContent1 = {
-  content: (
+const modalContent0 = () => {
+  return (
     <div>
-      <h1 style={{ marginBottom: 30 }}>
-        There are many important factors that have to be analyzed prior to
-        preparing a site plan.
-      </h1>
       <div className="body-lg">
+        <h1 style={{ marginBottom: 30 }}>
+          There are many important factors that have to be analyzed prior to
+          preparing a site plan.
+        </h1>
+        <p>
+          Location, the General Plan land use designations and site constraints
+          are all analyzed as part of the process to create a holistic Master
+          Plan.
+        </p>
+      </div>
+    </div>
+  );
+};
+const modalContent1 = () => {
+  return (
+    <div>
+      <div className="body-lg">
+        <h1 style={{ marginBottom: 30 }}>
+          There are many important factors that have to be analyzed prior to
+          preparing a site plan.
+        </h1>
         <p>
           This vision for Carlton Oaks is the result of numerous technical
           studies, conversations with the City, market analysis, and preliminary
@@ -45,30 +34,143 @@ const modalContent1 = {
         </p>
       </div>
     </div>
-  ),
-  buttonText: "LEARN MORE",
+  );
 };
-const modalContent2 = {
-  content: (
+const modalContent2 = (step, func) => {
+  console.log(func);
+  return (
+    <div onClick={func}>
+      <img
+        className="fullscreen-slide"
+        src={`/images/station3/Station-3-${step}.jpg`}
+      />
+    </div>
+  );
+};
+const modalContent9 = () => {
+  return (
     <div>
       <div className="body-lg">
+        <h1 style={{ marginBottom: 30 }}>
+          Prior to putting pen to paper on the plans, our team of engineers
+          conducted an extensive review of the site's constraints, including
+          floodway analysis.
+        </h1>
         <p>
-          The redesign of the course and improvements to the irrigation system
-          will result in reduced operations costs.
-        </p>
-        <p>
-          The new homeowners will activate the facilities year-round, further
-          assuring the long-term preservation of the gold course.
+          These constraints provided the framework for the vision for the new
+          Carlton Oaks Country Club and Resort.
         </p>
       </div>
     </div>
-  ),
-  buttonText: "BACK TO LOBBY",
+  );
+};
+const modalContent17 = () => {
+  return (
+    <div>
+      <div className="body-lg">
+        <h1 style={{ marginBottom: 30 }}>
+          In order to achieve compliance with both FEMA and the City of Santee's
+          Flood Damage Prevention Ordinance, the project has incorporated a
+          number of design features that will encourage the protection of the
+          proposed structures and the overall river corridor.
+        </h1>
+      </div>
+    </div>
+  );
+};
+
+const modalContent18 = () => {
+  return (
+    <div>
+      <div className="body-sm">
+        <h1 style={{ marginBottom: 30 }}>Design measures & Improvements</h1>
+        <p>
+          The proposed development areas are primarily located within the
+          footprint of the existing hotel and golf course. The stream that
+          currently runs through the golf course is being enhanced to maintain
+          existing flow capacities and natural resources.
+        </p>
+        <p>
+          The golf course is being redesigned to allow more flow to pass in
+          flooding situations. The southeast side of the golf course is being
+          graded lower to provide more flood volume. Other sections of the
+          course are being graded to remove existing hills and mounds that would
+          otehrwise be an impediment to flow.
+        </p>
+        <p>
+          The proposed shape and location of the hotel site was intentionally
+          designed to avoid disruption to the flow of the San Diego River and to
+          maintain the existing river flow capacity. The hotel site is contoured
+          to allow flows to pass freely to the south.
+        </p>
+        <p>
+          The city of Santee public storm drain system discharges into the gold
+          course at several locations. The proposed project will improve these
+          channels to avoid erosion and standing water.
+        </p>
+        <p>
+          Innovative measures will be implemented to ensure that the embankments
+          around the development are engineered to be both aesthetic, stable,
+          and resist erosion. Geotechnical soil reinforcement will be utilized
+          to ensure that even high flow velocities will not erode or damage the
+          propsed development embankments.
+        </p>
+        <p>
+          In compliance with the Ordinance, all development within the floodway
+          will be reviewed and certified by a registered civil engineer.
+          Additionally, several other registered civil engineers will be
+          required to review the project specifically in regard to the flood
+          calculations.{" "}
+        </p>
+        <p>
+          The project will be utilizing water-tight pressure rated sewer pipe to
+          avoid all infiltration associated with floods or groundwater.{" "}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const modalContent19 = () => {
+  return (
+    <div>
+      <div className="body-lg">
+        <h1 style={{ marginBottom: 30 }}>
+          The plans for the new Golf Course and Resort are designed to minimize,
+          avoid and reduce impacts to sensitive resources.
+        </h1>
+        <p>
+          The results of both the FEMA analysis and the City analysis conclude
+          that the project will have <u>no impact</u> on the upstream water
+          surface elevation, as compared to the existing condition.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const modalContent20 = () => {
+  return (
+    <div>
+      <div className="body-lg">
+        <h1 style={{ marginBottom: 30 }}>
+          The revised maps are river modeling will be held at FEMA and at the
+          City as an official record.
+        </h1>
+        <p>
+          As part of this process, the Floodway and Floodplain will be remapped
+          and all of the residential, Hotel, and Resort areas will be fully
+          removed from any Flood Hazard zones.
+        </p>
+      </div>
+    </div>
+  );
 };
 
 class Station3 extends Component {
   constructor(props) {
     super(props);
+    this.modalcontent = React.createRef();
   }
   state = {
     step: 0,
@@ -76,9 +178,10 @@ class Station3 extends Component {
   };
 
   clearScene = () => {
-    stage = 1;
-    this.setState({ step: this.state.step + 1 });
-    this.props.clearScene();
+    /*     stage = 1;
+    this.setState({ step: 1 }); */
+    //this.props.clearScene();
+    this.props.exhibit0;
   };
   componentDidMount() {
     if (this.state.step === 0) {
@@ -125,25 +228,7 @@ class Station3 extends Component {
     });
   };
   seq1 = () => {
-    gsap.to(".content", {
-      opacity: 0,
-      display: "none",
-      ease: "circ.inOut",
-      duration: 1,
-      onComplete: this.seq2,
-    });
-
-    gsap.to(".whitePanel", {
-      css: {
-        maxWidth: "90%",
-        width: "90%",
-        height: "15%",
-        top: "75%",
-      },
-      delay: 0.2,
-      ease: "circ.inOut",
-      duration: 1,
-    });
+    this.fadeInOut(".content");
   };
   seq2 = () => {
     gsap.to(".grid-top", {
@@ -277,19 +362,19 @@ class Station3 extends Component {
 
   fadeIntro = () => {
     this.props.reset();
-    this.setState({ step: 0 }, () => {
-      gsap.to(
-        ".exhibit2",
 
-        {
-          scale: 0,
-          display: "none",
-          ease: "circ.inOut",
-          duration: 1,
-          onComplete: this.props.exhibit0,
-        }
-      );
-    });
+    gsap.fromTo(
+      ".modal",
+      { scale: 1, display: "block" },
+      {
+        scale: 0,
+        display: "none",
+
+        ease: "circ.inOut",
+        duration: 1,
+        onComplete: this.clearScene,
+      }
+    );
   };
 
   resetIntro = () => {
@@ -330,28 +415,42 @@ class Station3 extends Component {
               </div>
             </div>
           </div>
-          <div className="overlay-content whitePanel">
-            <div className="subcontent">
-              {eval(`subcontentText${this.state.step}`)}
-            </div>
-            <div className="center-content content">
-              {this.state.modalContent.content}
+          <div
+            className={
+              (this.state.step > 1 && this.state.step < 9) ||
+              (this.state.step > 9 && this.state.step < 17)
+                ? "overlay-full whitePanel"
+                : "overlay-content whitePanel"
+            }
+          >
+            <div className="center-content content" ref="modalcontent">
+              {eval(
+                `modalContent${
+                  (this.state.step > 1 && this.state.step < 9) ||
+                  (this.state.step > 9 && this.state.step < 17)
+                    ? 2
+                    : this.state.step
+                }`
+              )(this.state.step, this.seq1)}
               <div>
                 <div
                   className="button transition"
-                  onClick={this.state.step > 1 ? this.fadeIntro : this.seq1}
+                  onClick={this.state.step < 20 ? this.seq1 : this.fadeIntro}
                 >
-                  {this.state.modalContent.buttonText}
+                  NEXT
                 </div>
               </div>
             </div>
           </div>
-          <div className="overlay-footer">
-            <div className="overlay-logo">
-              <img src="images/logo.png" />
+          {(this.state.step > 1 && this.state.step < 9) ||
+          (this.state.step > 9 && this.state.step < 17) ? null : (
+            <div className="overlay-footer">
+              <div className="overlay-logo">
+                <img src="images/logo.png" />
+              </div>
+              <div className="station-title">Station 3 – Building blocks</div>
             </div>
-            <div className="station-title">Station 2 – State of Golf</div>
-          </div>
+          )}
         </div>
       </div>
     );
