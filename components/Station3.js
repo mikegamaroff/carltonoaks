@@ -178,10 +178,12 @@ class Station3 extends Component {
   };
 
   clearScene = () => {
-    /*     stage = 1;
-    this.setState({ step: 1 }); */
+    stage = 0;
+
     //this.props.clearScene();
-    this.props.exhibit0;
+    this.setState({ step: 0 }, () => {
+      this.props.exhibit0();
+    });
   };
   componentDidMount() {
     if (this.state.step === 0) {
@@ -194,7 +196,6 @@ class Station3 extends Component {
 
           ease: "circ.inOut",
           duration: 1,
-          onComplete: this.clearScene,
         }
       );
     }

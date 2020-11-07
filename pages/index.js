@@ -6,7 +6,7 @@ import gsap from "gsap";
 import Modal from "../components/Modal";
 import Exhibit2 from "../components/Exhibit2";
 import Station3 from "../components/Station3";
-
+import Station4 from "../components/Station4";
 import GolfVideo from "../components/GolfVideo";
 class Home extends Component {
   constructor(props) {
@@ -19,11 +19,11 @@ class Home extends Component {
     key: "(EN]KP}pzz]avzqE96XnW?AtuZju9",
     validated: false,
     exhibit: 0,
+    station: 0,
     cleared: false,
   };
   exhibit0 = () => {
-    this.setState({ exhibit: 0 });
-    console.log("fuck " + this.state.exhibit);
+    this.setState({ exhibit: 0, station: 0 });
   };
   exhibit1 = () => {
     this.setState({ exhibit: 1 });
@@ -33,6 +33,9 @@ class Home extends Component {
   };
   launchStation3 = () => {
     this.setState({ station: 3 });
+  };
+  launchStation4 = () => {
+    this.setState({ station: 4 });
   };
   fadeInOut = (obj) => {
     gsap.to(obj, {
@@ -136,7 +139,17 @@ class Home extends Component {
               fadeOut={this.fadeOut}
             />
           ) : null}
-
+          {this.state.station === 4 ? (
+            <>
+              <Station4
+                clearScene={this.clearScene}
+                reset={this.reset}
+                exhibit0={this.exhibit0}
+                fadeInOut={this.fadeInOut}
+                fadeOut={this.fadeOut}
+              />
+            </>
+          ) : null}
           {!this.state.cleared ? (
             <div className="roomContainer">
               <div className="sceneContainer">
@@ -344,6 +357,21 @@ class Home extends Component {
                           margin: 0,
                         }}
                         onClick={this.launchStation3}
+                      >
+                        <div className="pulse" />
+                      </div>
+                      <div
+                        className="imacButton"
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          position: "absolute",
+                          top: "90%",
+                          left: "63%",
+                          padding: 0,
+                          margin: 0,
+                        }}
+                        onClick={this.launchStation4}
                       >
                         <div className="pulse" />
                       </div>
