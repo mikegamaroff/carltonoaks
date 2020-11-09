@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import gsap from "gsap";
 const subcontentText0 = <></>;
 const subcontentText1 =
-  "Minimum wage has increased roughly $1 per year over the last 5 years. We value our employees and understand the need for change. Yet, increasing costs are a challenge.";
+  "Minimum wage has increased $1 per hour each year over the last 5 years. It will reach $15 per hour in 2021. We value our employees and understand the need for change. Yet, increasing costs are a challenge.";
 /* const subcontentText2 =
   "Audobon International estimates that the average American golf course uses 312,000 gallons of water per day.";
  */ const subcontentText2 = (
@@ -11,7 +11,7 @@ const subcontentText1 =
       <img src="/images/water.png" />
     </div>
     <div>
-      The redesigned Carlton Oaks Gold Course would reduce water usage by
+      The redesigned Carlton Oaks Golf Course would reduce water usage by
       approximately 56%, saving 97 million gallons of water per year.
     </div>
   </div>
@@ -60,7 +60,7 @@ const modalContent2 = {
         </p>
         <p>
           The new homeowners will activate the facilities year-round, further
-          assuring the long-term preservation of the gold course.
+          assuring the long-term preservation of the golf course.
         </p>
       </div>
     </div>
@@ -180,7 +180,8 @@ class Exhibit2 extends Component {
   };
 
   seq3 = () => {
-    this.fadeInOut(".subcontent", 3);
+    this.fadeInOut(".subcontent", 4);
+
     gsap.fromTo(
       ".infoBlockAnim2",
       {
@@ -192,13 +193,27 @@ class Exhibit2 extends Component {
         display: "block",
         opacity: 1,
         y: 0,
-        delay: 3,
+        delay: 4,
         ease: "circ.inOut",
         duration: 1,
         onComplete: this.seq4,
       }
     );
+
+    gsap.to(
+      ".asterisk",
+
+      {
+        display: "block",
+        opacity: 1,
+        y: 0,
+        delay: 4,
+        ease: "circ.inOut",
+        duration: 1,
+      }
+    );
   };
+
   /*   seq4 = () => {
     this.fadeInOut(".subcontent", 3);
     gsap.to(".infoBlockAnim3", {
@@ -208,7 +223,19 @@ class Exhibit2 extends Component {
     });
   }; */
   seq4 = () => {
-    this.fadeInOut(".subcontent", 3);
+    this.fadeInOut(".subcontent", 4);
+    gsap.to(
+      ".asterisk",
+
+      {
+        display: "none",
+        opacity: 0,
+        y: 0,
+        delay: 4,
+        ease: "circ.inOut",
+        duration: 1,
+      }
+    );
     gsap.fromTo(
       ".infoBlockAnim3",
       {
@@ -220,7 +247,7 @@ class Exhibit2 extends Component {
         display: "block",
         opacity: 1,
         y: 0,
-        delay: 3,
+        delay: 4,
         ease: "circ.inOut",
         duration: 1,
         onComplete: this.seq5,
@@ -228,10 +255,10 @@ class Exhibit2 extends Component {
     );
   };
   seq5 = () => {
-    this.fadeInOut(".subcontent", 3);
+    this.fadeInOut(".subcontent", 4);
     gsap.to(".infoBlockAnim3", {
       opacity: 1,
-      delay: 3,
+      delay: 4,
       onComplete: this.seq6,
     });
   };
@@ -244,14 +271,14 @@ class Exhibit2 extends Component {
       display: "none",
       ease: "circ.inOut",
       duration: 0.5,
-      delay: 3,
+      delay: 4,
     });
     gsap.to(".grid-top", {
       opacity: 0,
       display: "none",
       ease: "circ.inOut",
       duration: 1,
-      delay: 2.5,
+      delay: 3.5,
     });
     gsap.to(".whitePanel", {
       css: {
@@ -260,7 +287,7 @@ class Exhibit2 extends Component {
         height: "60%",
         top: "50%",
       },
-      delay: 3,
+      delay: 4,
       ease: "circ.inOut",
       duration: 1,
       onComplete: this.seq7,
@@ -320,19 +347,22 @@ class Exhibit2 extends Component {
               </div>
               <div className="infoBlock infoBlockAnim2">
                 <div className="infoText">
-                  The average American gold course uses
+                  The average American golf course uses
                 </div>
                 <div className="infoPerc">312k</div>
                 <div className="infoText">gallons of water each day*</div>
               </div>
               <div className="infoBlock infoBlockAnim3">
-                <div className="infoText">The current course has</div>
+                <div className="infoText">Carlton Oaks currently has</div>
                 <div className="infoPerc">132</div>
                 <div className="infoText">acres of turf irrigation</div>
               </div>
             </div>
           </div>
           <div className="overlay-content whitePanel">
+            <div className="asterisk">
+              * Statistic courtesy of Audubon International.
+            </div>
             <div className="subcontent">
               {eval(`subcontentText${this.state.step}`)}
             </div>

@@ -56,7 +56,7 @@ const content7 = (
     <ul>
       <li>Closed 2018</li>
       <li>167 acres</li>
-      <li>Proposed Use: 1,200 units, 70% parks and open space</li>
+      <li>Proposed Use: 1,200 homes, 70% parks and open space</li>
     </ul>
   </>
 );
@@ -64,7 +64,7 @@ const content8 = <></>;
 const content9 = (
   <>
     {" "}
-    <div className="courseBody-header">Town Park Golf Course</div>
+    <div className="courseBody-header">Town Park Villas Golf Course</div>
     <Line />
     <ul>
       <li>Closed 2019</li>
@@ -96,7 +96,7 @@ const content12 = (
       <li>280 acres</li>
       <li>Proposed Use: Sand Mine</li>
       <li>
-        Future: Following 20+ years of mining, new homes and parks will be
+        Future Use: Following 20+ years of mining, new homes and parks will be
         constructed
       </li>
     </ul>
