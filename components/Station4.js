@@ -30,26 +30,26 @@ const modalContent1 = (step, func) => {
       >
         <div className="landUsePlanning-container">
           <div className="landUsePlanning">
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
-            <div className="landUseBlock">d</div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
+            <div className="landUseBlock"></div>
           </div>
         </div>
         <img
