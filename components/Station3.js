@@ -95,7 +95,7 @@ const modalContent18 = () => {
           flooding situations. The southeast side of the golf course is being
           graded lower to provide more flood volume. Other sections of the
           course are being graded to remove existing hills and mounds that would
-          otehrwise be an impediment to flow.
+          otherwise be an impediment to flow.
         </p>
         <p>
           The proposed shape and location of the hotel site was intentionally
@@ -104,7 +104,7 @@ const modalContent18 = () => {
           to allow flows to pass freely to the south.
         </p>
         <p>
-          The city of Santee public storm drain system discharges into the gold
+          The city of Santee public storm drain system discharges into the golf
           course at several locations. The proposed project will improve these
           channels to avoid erosion and standing water.
         </p>
@@ -113,7 +113,7 @@ const modalContent18 = () => {
           around the development are engineered to be both aesthetic, stable,
           and resist erosion. Geotechnical soil reinforcement will be utilized
           to ensure that even high flow velocities will not erode or damage the
-          propsed development embankments.
+          proposed development embankments.
         </p>
         <p>
           In compliance with the Ordinance, all development within the floodway
@@ -141,8 +141,9 @@ const modalContent19 = () => {
         </h1>
         <p>
           The results of both the FEMA analysis and the City analysis conclude
-          that the project will have <u>no impact</u> on the upstream water
-          surface elevation, as compared to the existing condition.
+          that the project will have <br />
+          <u>no impact</u> on the upstream water surface elevation, as compared
+          to the existing condition.
         </p>
       </div>
     </div>
@@ -205,7 +206,7 @@ class Station3 extends Component {
     gsap.to(obj, {
       opacity: 0,
       ease: "circ.inOut",
-      duration: 0.3,
+      duration: 0,
       delay: delay ? delay : 0,
       onComplete: this.fadeIn,
       onCompleteParams: [obj],
@@ -217,7 +218,7 @@ class Station3 extends Component {
     gsap.to(obj, {
       opacity: 1,
       ease: "circ.inOut",
-      duration: 0.3,
+      duration: 0.03,
     });
   };
   fadeOut = (obj, delay) => {
@@ -404,7 +405,7 @@ class Station3 extends Component {
               </div>
               <div className="infoBlock infoBlockAnim2">
                 <div className="infoText">
-                  The average American gold course uses
+                  The average American golf course uses
                 </div>
                 <div className="infoPerc">312k</div>
                 <div className="infoText">gallons of water each day*</div>
@@ -438,7 +439,7 @@ class Station3 extends Component {
                   className="button transition"
                   onClick={this.state.step < 20 ? this.seq1 : this.fadeIntro}
                 >
-                  NEXT
+                  {this.state.step === 9 ? "LEARN MORE" : "NEXT"}
                 </div>
               </div>
             </div>

@@ -22,6 +22,50 @@ const modalContent0 = () => {
 const modalContent1 = (step, func) => {
   console.log(step);
   return (
+    <div>
+      <div
+        onClick={func}
+        className="fullscreen-slide"
+        style={{ cursor: "unset" }}
+      >
+        <div className="landUsePlanning-container">
+          <div className="landUsePlanning">
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+            <div className="landUseBlock">d</div>
+          </div>
+        </div>
+        <img
+          style={{ height: "100%" }}
+          src={`/images/station4/Station-4-${step}.jpg`}
+        />
+        <map name="image-map">
+          <area href="http://TargetURL.com" coords="9,12,279,78" shape="rect" />
+        </map>
+      </div>
+    </div>
+  );
+};
+const modalContent2 = (step, func) => {
+  console.log(step);
+  return (
     <div onClick={func}>
       <img
         className="fullscreen-slide"
@@ -30,8 +74,7 @@ const modalContent1 = (step, func) => {
     </div>
   );
 };
-
-const modalContent2 = () => {
+const modalContent9 = () => {
   return (
     <div>
       <div className="body-sm">
@@ -301,15 +344,15 @@ class Station4 extends Component {
         <div className="overlay-container zindex2 modal">
           <div
             className={
-              this.state.step === 1
-                ? "overlay-full whitePanel"
-                : "overlay-content whitePanel"
+              this.state.step === 0
+                ? "overlay-content whitePanel"
+                : "overlay-full whitePanel"
             }
           >
             <div className="center-content content" ref="modalcontent">
               {eval(`modalContent${this.state.step}`)(
                 this.state.step,
-                this.seq1
+                this.state.step < 2 ? this.seq1 : this.fadeIntro
               )}
               <div>
                 <div
