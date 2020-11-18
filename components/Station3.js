@@ -12,8 +12,8 @@ const modalContent0 = () => {
         </h1>
         <p>
           Location, the General Plan land use designations and site constraints
-          are all analyzed as part of the process to create a holistic Master
-          Plan.
+          are all analyzed as part of the process to create a comprehensive
+          Master Development Plan.
         </p>
       </div>
     </div>
@@ -39,15 +39,37 @@ const modalContent1 = () => {
 const modalContent2 = (step, func) => {
   console.log(func);
   return (
-    <div onClick={func}>
+    /*     <div onClick={func}>
       <img
         className="fullscreen-slide"
+        src={`/images/station3/Station-3-${step}.jpg`}
+      />
+    </div> */
+
+    <div
+      //onClick={func}
+      className="fullscreen-slide"
+      style={{ cursor: "unset" }}
+    >
+      <div className="overlay-button-container">
+        <div
+          className="overlay-button"
+          onClick={func}
+          style={{
+            bottom: step < 5 ? "20%" : step > 4 && step < 10 ? "8%" : "90%",
+            left: step < 5 ? "11%" : "78%",
+          }}
+        />
+      </div>
+      {console.log(step)}
+      <img
+        style={{ height: "100%" }}
         src={`/images/station3/Station-3-${step}.jpg`}
       />
     </div>
   );
 };
-const modalContent9 = () => {
+const modalContent10 = () => {
   return (
     <div>
       <div className="body-lg">
@@ -58,17 +80,18 @@ const modalContent9 = () => {
         </h1>
         <p>
           These constraints provided the framework for the vision for the new
+          <br />
           Carlton Oaks Country Club and Resort.
         </p>
       </div>
     </div>
   );
 };
-const modalContent17 = () => {
+const modalContent18 = () => {
   return (
     <div>
       <div className="body-lg">
-        <h1 style={{ marginBottom: 30 }}>
+        <h1 style={{ padding: "30px 60px 0 60px" }}>
           In order to achieve compliance with both FEMA and the City of Santee's
           Flood Damage Prevention Ordinance, the project has incorporated a
           number of design features that will encourage the protection of the
@@ -79,59 +102,69 @@ const modalContent17 = () => {
   );
 };
 
-const modalContent18 = () => {
+const modalContent19 = () => {
   return (
     <div>
       <div className="body-sm">
         <h1 style={{ marginBottom: 30 }}>Design measures & Improvements</h1>
-        <p>
-          The proposed development areas are primarily located within the
-          footprint of the existing hotel and golf course. The stream that
-          currently runs through the golf course is being enhanced to maintain
-          existing flow capacities and natural resources.
-        </p>
-        <p>
-          The golf course is being redesigned to allow more flow to pass in
-          flooding situations. The southeast side of the golf course is being
-          graded lower to provide more flood volume. Other sections of the
-          course are being graded to remove existing hills and mounds that would
-          otherwise be an impediment to flow.
-        </p>
-        <p>
-          The proposed shape and location of the hotel site was intentionally
-          designed to avoid disruption to the flow of the San Diego River and to
-          maintain the existing river flow capacity. The hotel site is contoured
-          to allow flows to pass freely to the south.
-        </p>
-        <p>
-          The city of Santee public storm drain system discharges into the golf
-          course at several locations. The proposed project will improve these
-          channels to avoid erosion and standing water.
-        </p>
-        <p>
-          Innovative measures will be implemented to ensure that the embankments
-          around the development are engineered to be both aesthetic, stable,
-          and resist erosion. Geotechnical soil reinforcement will be utilized
-          to ensure that even high flow velocities will not erode or damage the
-          proposed development embankments.
-        </p>
-        <p>
-          In compliance with the Ordinance, all development within the floodway
-          will be reviewed and certified by a registered civil engineer.
-          Additionally, several other registered civil engineers will be
-          required to review the project specifically in regard to the flood
-          calculations.{" "}
-        </p>
-        <p>
-          The project will be utilizing water-tight pressure rated sewer pipe to
-          avoid all infiltration associated with floods or groundwater.{" "}
-        </p>
+        <ul>
+          <li>
+            The proposed development areas are primarily located within the
+            footprint of the existing hotel and golf course. The stream that
+            currently runs through the golf course is being enhanced and will
+            maintain existing flow capacities and natural resources.
+          </li>
+          <li>
+            The golf course is being redesigned to allow more stream flow to
+            pass in flooding situations. The southeast side of the golf course
+            is being graded lower to provide more flood volume. Other sections
+            of the course are being graded to remove existing hills and mounds
+            that would otherwise be an impediment to flow.
+          </li>
+          <li>
+            The proposed shape and location of the hotel site was intentionally
+            designed to avoid disruption to the flow of the San Diego River and
+            to maintain the existing river flow capacity. The hotel site is also
+            being contoured to allow flows to pass freely to the south.
+          </li>
+        </ul>
       </div>
     </div>
   );
 };
-
-const modalContent19 = () => {
+const modalContent20 = () => {
+  return (
+    <div>
+      <div className="body-sm">
+        <h1 style={{ marginBottom: 30 }}>Design measures & Improvements</h1>
+        <ul>
+          <li>
+            Geotechnical soil reinforcement will be utilized to ensure that even
+            high flow velocities will not erode or damage the proposed
+            development embankments.
+          </li>
+          <li>
+            In compliance with the City of Santee’s Ordinance, all development
+            will be reviewed and certified by a registered civil engineer.
+            Additionally, several other registered civil engineers will be
+            required to review the project specifically in regard to the flood
+            calculations.
+          </li>
+          <li>
+            The project will be utilizing water-tight pressure rated sewer pipe
+            to avoid all infiltration associated with floods or groundwater.
+          </li>
+          <li>
+            The city of Santee public storm drain system discharges into the
+            golf course at several locations. The proposed project will improve
+            these channels to avoid erosion and standing water.
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+const modalContent21 = () => {
   return (
     <div>
       <div className="body-lg">
@@ -150,12 +183,12 @@ const modalContent19 = () => {
   );
 };
 
-const modalContent20 = () => {
+const modalContent22 = () => {
   return (
     <div>
       <div className="body-lg">
         <h1 style={{ marginBottom: 30 }}>
-          The revised maps are river modeling will be held at FEMA and at the
+          The revised maps and river modeling will be held at FEMA and at the
           City as an official record.
         </h1>
         <p>
@@ -392,7 +425,7 @@ class Station3 extends Component {
   render() {
     return (
       <div>
-        <div className="overlay-container zindex2 modal">
+        <div className="overlay-container3 zindex2 modal">
           <div>
             <div className="infoGraphic-grid" style={{ width: "90%" }}>
               <div className="grid-top">Did you know?</div>
@@ -419,8 +452,8 @@ class Station3 extends Component {
           </div>
           <div
             className={
-              (this.state.step > 1 && this.state.step < 9) ||
-              (this.state.step > 9 && this.state.step < 17)
+              (this.state.step > 1 && this.state.step < 10) ||
+              (this.state.step > 10 && this.state.step < 18)
                 ? "overlay-full whitePanel"
                 : "overlay-content whitePanel"
             }
@@ -428,8 +461,8 @@ class Station3 extends Component {
             <div className="center-content content" ref="modalcontent">
               {eval(
                 `modalContent${
-                  (this.state.step > 1 && this.state.step < 9) ||
-                  (this.state.step > 9 && this.state.step < 17)
+                  (this.state.step > 1 && this.state.step < 10) ||
+                  (this.state.step > 10 && this.state.step < 18)
                     ? 2
                     : this.state.step
                 }`
@@ -437,20 +470,28 @@ class Station3 extends Component {
               <div>
                 <div
                   className="button transition"
-                  onClick={this.state.step < 20 ? this.seq1 : this.fadeIntro}
+                  style={{
+                    display:
+                      this.state.step > 1 &&
+                      this.state.step !== 10 &&
+                      this.state.step < 18
+                        ? "none"
+                        : "block",
+                  }}
+                  onClick={this.state.step < 22 ? this.seq1 : this.fadeIntro}
                 >
-                  {this.state.step === 9 ? "LEARN MORE" : "NEXT"}
+                  {this.state.step === 10 ? "LEARN MORE" : "NEXT"}
                 </div>
               </div>
             </div>
           </div>
-          {(this.state.step > 1 && this.state.step < 9) ||
-          (this.state.step > 9 && this.state.step < 17) ? null : (
+          {(this.state.step > 1 && this.state.step < 10) ||
+          (this.state.step > 10 && this.state.step < 18) ? null : (
             <div className="overlay-footer">
               <div className="overlay-logo">
                 <img src="images/logo.png" />
               </div>
-              <div className="station-title">Station 3 – Building blocks</div>
+              <div className="station-title">Station 3 – Building Blocks</div>
             </div>
           )}
         </div>

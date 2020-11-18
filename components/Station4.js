@@ -56,9 +56,6 @@ const modalContent1 = (step, func) => {
           style={{ height: "100%" }}
           src={`/images/station4/Station-4-${step}.jpg`}
         />
-        <map name="image-map">
-          <area href="http://TargetURL.com" coords="9,12,279,78" shape="rect" />
-        </map>
       </div>
     </div>
   );
