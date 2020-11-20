@@ -390,7 +390,7 @@ class Home extends Component {
                       >
                         <div className="pulse" />
                       </div>
-                      {/*     <div
+                      <div
                         className="imacButton"
                         style={{
                           width: "20px",
@@ -404,7 +404,7 @@ class Home extends Component {
                         onClick={this.launchStation5}
                       >
                         <div className="pulse" />
-                      </div> */}
+                      </div>
                     </div>
                     {/*           <div
                       style={{

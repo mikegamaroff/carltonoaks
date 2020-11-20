@@ -474,7 +474,7 @@ class Station4 extends Component {
             className={
               this.state.step === 0
                 ? "overlay-content whitePanel"
-                : "overlay-full whitePanel"
+                : "overlay-full black whitePanel"
             }
           >
             <div className="center-content content" ref="modalcontent">
