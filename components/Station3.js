@@ -454,7 +454,7 @@ class Station3 extends Component {
             className={
               (this.state.step > 1 && this.state.step < 10) ||
               (this.state.step > 10 && this.state.step < 18)
-                ? "overlay-full whitePanel"
+                ? "overlay-full black whitePanel"
                 : "overlay-content whitePanel"
             }
           >

@@ -377,9 +377,15 @@ video {
 }
 .siteplanBlock {
   position: absolute;
-
-  width: 18vh;
-  height: 18vh;
+  width: 17vh;
+  height: 17vh;
+  font-size: 30px;
+}
+.siteplanBlockSmall {
+  position: absolute;
+  width: 7vh;
+  height: 7vh;
+  font-size: 30px;
 }
 .landUsePlanning-container {
   width: 87%;
@@ -412,13 +418,22 @@ video {
   font-family: "Roboto", sans-serif;
   font-size: 13px;
   position: absolute;
-  width: 22vw;
+
   left: 0;
   padding: 20px 20px 20px 20px;
   line-height: 1.5;
   display: none;
   box-shadow: 3px 3px 6px 2px rgba(0, 0, 0, 0.23);
   z-index: 10;
+}
+.text-popup-noimage {
+  width: 22vw;
+}
+.text-popup-image {
+  width: 30vw;
+}
+.text-popup img {
+  width: 100%;
 }
 .closebtn {
   position: absolute;

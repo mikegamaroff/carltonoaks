@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import gsap from "gsap";
 const popupText = [
-  "We kicked off public outreach in January 2020 with the launch of our informational website and FAQs page, door to door outreach to adjacent neighbors, one-on-one and small group meetings with interested community members, and meetings with local community groups.",
-  "The second application submittal included changes to the plan based on city comments and community feedback. The application is currently under review by city staff.",
-  "A letter was mailed to 950 homeowners who live in the neighborhoods closest to the course. It can be downloaded by visiting www.carltonoaksinfo.com/outreach",
-  "Thanks for coming!",
-  "We will refine plans to incorporate comments we receive on our second submittal as well as feedback submitted during the open house",
-  "This is an iterative process. We will continue to refine and resubmit until the cities deem our application complete.",
-  "Public education and education are a very important part of the process. Our team is available for one-on-one and small group meetings. We will also hold more public workshops. We hope you’ll stay involved!",
-  "We’ll keep you up to date on project milestones through our website and other outreach mediums.",
-  "The Scoping Meeting is your opportunity to provide input on specific issues you’d like to see analyzed in the Environmental Impact Report (EIR).",
-  "The EIR evaluates many different categories, including aesthetics, air quality, biological resources, cultural resources, geology and soils, greenhouse gases, hydrology and water quality, noise, traffic and more.",
-  "The Draft EIR will be circulated for public review. The public may submit comments or questions on the document.",
-  "Once the comment period closes, responses will be prepared. The responses to all comments will be included in the final EIR.",
-  "what is the approval process in SD? hearing manager? PC?",
-  "A public hearing will be hosted with the Santee City Council.",
+  "0 We kicked off public outreach in January 2020 with the launch of our informational website and FAQs page, door to door outreach to adjacent neighbors, one-on-one and small group meetings with interested community members, and meetings with local community groups.",
+  "1 The second application submittal included changes to the plan based on city comments and community feedback. The application is currently under review by city staff.",
+  "2 A letter was mailed to 950 homeowners who live in the neighborhoods closest to the course. It can be downloaded by visiting www.carltonoaksinfo.com/outreach",
+  "3 Thanks for coming!",
+  "4 We will refine plans to incorporate comments we receive on our second submittal as well as feedback submitted during the open house",
+  "5 This is an iterative process. We will continue to refine and resubmit until the cities deem our application complete.",
+  "6 Public education and education are a very important part of the process. Our team is available for one-on-one and small group meetings. We will also hold more public workshops. We hope you’ll stay involved!",
+  "7 We’ll keep you up to date on project milestones through our website and other outreach mediums.",
+  "8 The Scoping Meeting is your opportunity to provide input on specific issues you’d like to see analyzed in the Environmental Impact Report (EIR).",
+  "9 The EIR evaluates many different categories, including aesthetics, air quality, biological resources, cultural resources, geology and soils, greenhouse gases, hydrology and water quality, noise, traffic and more.",
+  "10 The Draft EIR will be circulated for public review. The public may submit comments or questions on the document.",
+  "11 Once the comment period closes, responses will be prepared. The responses to all comments will be included in the final EIR.",
+  "12 what is the approval process in SD? hearing manager? PC?",
+  "13 A public hearing will be hosted with the Santee City Council.",
 ];
 let stage = 0;
 const modalContent0 = () => {
@@ -45,8 +45,8 @@ const modalContent1 = (step, func, poptextfunc, poptext) => {
       {
         scale: 1,
         display: "block",
-        ease: "elastic.out",
-        duration: 0.5,
+        ease: "power.out",
+        duration: 0.2,
       }
     );
   };
@@ -57,8 +57,8 @@ const modalContent1 = (step, func, poptextfunc, poptext) => {
       {
         scale: 0,
         display: "none",
-        ease: "elastic.out",
-        duration: 0.5,
+        ease: "power.out",
+        duration: 0.2,
       }
     );
   };
@@ -80,14 +80,14 @@ const modalContent1 = (step, func, poptextfunc, poptext) => {
           />
         </div>
         <div className="landUsePlanning-container">
-          <div className="text-popup">
-            <div
+          <div className="text-popup text-popup-noimage">
+            {/*       <div
               className="closebtn"
               onClick={popdown}
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "help" }}
             >
               <img src="/images/close.png" />
-            </div>
+            </div> */}
             <div>{poptext}</div>
           </div>
 
@@ -97,78 +97,92 @@ const modalContent1 = (step, func, poptextfunc, poptext) => {
             <div className="landUseBlock" />
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(0, 330, -30)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(0, 680, -60)}
+              onMouseLeave={popdown}
             />
             <div className="landUseBlock" />
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(1, 800, -30)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(1, 650, -30)}
+              onMouseLeave={popdown}
             />
 
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(2, 100, 140)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(2, 190, 140)}
+              onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(3, 200, 140)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(3, 440, 140)}
+              onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(4, 400, 140)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(4, 680, 140)}
+              onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(5, 650, 140)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(5, 400, 140)}
+              onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(6, 750, 140)}
-            />
-            <div className="landUseBlock" />
-            <div
-              className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(7, 200, 280)}
-            />
-            <div
-              className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(8, 400, 280)}
-            />
-            <div
-              className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(9, 650, 280)}
-            />
-            <div
-              className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(10, 750, 280)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(6, 650, 140)}
+              onMouseLeave={popdown}
             />
             <div className="landUseBlock" />
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(11, 200, 420)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(7, 440, 300)}
+              onMouseLeave={popdown}
+            />
+            <div
+              className="landUseBlock"
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(8, 680, 280)}
+              onMouseLeave={popdown}
+            />
+            <div
+              className="landUseBlock"
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(9, 400, 280)}
+              onMouseLeave={popdown}
+            />
+            <div
+              className="landUseBlock"
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(10, 650, 280)}
+              onMouseLeave={popdown}
             />
             <div className="landUseBlock" />
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(12, 650, 420)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(11, 440, 420)}
+              onMouseLeave={popdown}
+            />
+            <div className="landUseBlock" />
+            <div
+              className="landUseBlock"
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(12, 400, 420)}
+              onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "pointer" }}
-              onClick={() => popup(13, 750, 420)}
+              style={{ cursor: "help" }}
+              onMouseEnter={() => popup(13, 750, 420)}
+              onMouseLeave={popdown}
             />
           </div>
         </div>

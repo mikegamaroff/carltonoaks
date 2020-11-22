@@ -1,18 +1,42 @@
 import React, { Component } from "react";
 import gsap from "gsap";
 const popupText = [
-  "85 homes are proposed for Residential West (Planning Area 1). Homes are detached and  consistent with surrounding...",
-  "",
-  "",
-  "The new homes are divided into two gated neighborhoods on the western and northern portions of the property. The neighborhoods are designed to be an accessory to the golf course and will be linked to the Country Club and Resort through connective cart paths, providing seamless access between homes and recreation.",
-  "158 multi-family detached homes, designed to be compatible with the adjacent residential uses.",
-  "The redesigned golf course utilizes native vegetation to reduce the amount of grass in need of irrigation from 132 acres to 66 acres while still maintaining a championship golf course.",
-  "Sweeping views of the course will be enjoyed from the new Club & Resort courtyard.",
-  "The Carlton Oaks Country Club and Resort provides public access to the new San Diego River trail through a new .04-acre public trailhead which will connect to the existing trails through Mast Park. SANDAG is proposing to construct a Class 1 bikeway along this alignment for the exclusive use of pedestrians and cyclists.",
-  "The revitalized Carlton Oaks Country Club & Resort will serve as a modern welcoming place for longtime locals and visitors.  The resort facilities include a 52-room boutique hotel with swimming pool, event lawns, wellness center, and dining. The new facilities are anticipated to attract more users than the existing banquet room and hotel, bolstering the local economy through event revenue, tourism, and property taxes.",
+  "0. 85 homes are proposed for Residential West (Planning Area 1). Homes are detached and consistent with surrounding neighborhood.",
+  "1. Video",
+  "2. The new homes in Residential West (PA 1) will be at a lower grade than the existing homes to preserve privacy and long views of the mountains to the south.",
+  "3. The new homes are divided into two gated neighborhoods on the western and northern portions of the property. The neighborhoods are designed to be an accessory to the golf course and will be linked to the Country Club and Resort through connective cart paths, providing seamless access between homes and recreation.",
+  "4. 158 multi-family detached homes, designed to be compatible with the adjacent residential uses.",
+  "5. The redesigned golf course utilizes native vegetation to reduce the amount of grass in need of irrigation from 132 acres to 66 acres while still maintaining a championship golf course.",
+  "6. Sweeping views of the course will be enjoyed from the new Club & Resort courtyard.",
+  "7. The Carlton Oaks Country Club and Resort provides public access to the new San Diego River trail through a new .04-acre public trailhead which will connect to the existing trails through Mast Park. SANDAG is proposing to construct a Class 1 bikeway along this alignment for the exclusive use of pedestrians and cyclists.",
+  "8. The revitalized Carlton Oaks Country Club & Resort will serve as a modern welcoming place for longtime locals and visitors. The resort facilities include a 52-room boutique hotel with swimming pool, event lawns, wellness center, and dining. The new facilities are anticipated to attract more users than the existing banquet room and hotel, bolstering the local economy through event revenue, tourism, and property taxes.",
+  "9. Existing ponds will be redesigned, and reshaped, and existing maintenance facilities will be moved out of the floodway where they currently sit.",
+  "10. The redesigned golf course will be updated to improve the flow of drainage, which would reduce the amount of ponding that occurs on the site during rain events.",
+  "11. The housing and resort architecture embody the elements of Santee’s history through a mixture of modern cottage, modern prairie, and contemporary Spanish styles.",
+  "12. 15 acres of existing natural areas will be retained on site. Remaining out of play areas will be landscaped with native plants which require little to no maintenance.",
+  "13. New community features will define the “sense of place” with amenities and activities for the entire family, including a new swimming pool, event lawns, wellness center, and a redesigned eighteen-hole golf course. Country Club Memberships will be available to the community which are envisioned to provide exclusive access to social programming.",
+  "14. Carlton Oaks would develop a dedicated driving range with covered hitting areas. Updated practice facilities for chipping and putting are also included.",
+];
+
+const popupImage = [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  "COURTyard.jpg",
+  null,
+  null,
+  "Architecture.jpg",
+  null,
+  "Pool.jpg",
+  "DrivingRange.jpg",
 ];
 let stage = 0;
-const modalContent0 = (step, poptextfunc, poptext, func) => {
+const modalContent0 = (step, poptextfunc, poptext, popimage, func) => {
   let i = 0;
 
   const popup = (val, x, y) => {
@@ -23,8 +47,8 @@ const modalContent0 = (step, poptextfunc, poptext, func) => {
       {
         scale: 1,
         display: "block",
-        ease: "elastic.out",
-        duration: 0.5,
+        ease: "power.out",
+        duration: 0.2,
       }
     );
   };
@@ -35,8 +59,8 @@ const modalContent0 = (step, poptextfunc, poptext, func) => {
       {
         scale: 0,
         display: "none",
-        ease: "elastic.out",
-        duration: 0.5,
+        ease: "power.out",
+        duration: 0.2,
       }
     );
   };
@@ -54,63 +78,122 @@ const modalContent0 = (step, poptextfunc, poptext, func) => {
           />
         </div>
         <div className="sitePlan-container">
-          <div className="text-popup">
-            <div
+          <div
+            className={`text-popup ${
+              popimage ? "text-popup-image" : "text-popup-noimage"
+            }`}
+          >
+            {/*   <div
               className="closebtn"
               onClick={popdown}
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "help" }}
             >
               <img src="/images/close.png" />
-            </div>
+            </div> */}
             <div>{poptext}</div>
-            {/*   <div>{popimg}</div> */}
+            {popimage ? (
+              <>
+                {" "}
+                <div style={{ marginTop: 15 }}>
+                  <img src={`/images/station5/${popimage}`} />
+                </div>
+              </>
+            ) : null}
           </div>
 
           <div className="sitePlan">
             <div
               className="siteplanBlock"
-              style={{ cursor: "pointer", top: "10%" }}
-              onClick={() => popup(0, 130, 30)}
+              style={{ cursor: "help", top: "10%" }}
+              onMouseEnter={() => popup(0, 130, 30)}
+              onMouseLeave={popdown}
+            />
+
+            <div
+              className="siteplanBlock"
+              style={{ cursor: "help", top: "77%" }}
+              onMouseEnter={() => popup(1, 130, 450)}
+              onMouseLeave={popdown}
+            />
+
+            <div
+              className="siteplanBlock"
+              style={{ cursor: "help", top: "34%", left: "18%" }}
+              onMouseEnter={() => popup(2, 370, 300)}
+              onMouseLeave={popdown}
             />
             <div
               className="siteplanBlock"
-              style={{ cursor: "pointer", top: "77%" }}
-              onClick={() => popup(1, 130, 450)}
+              style={{ cursor: "help", top: "34%", left: "35%" }}
+              onMouseEnter={() => popup(3, 560, 270)}
+              onMouseLeave={popdown}
             />
             <div
               className="siteplanBlock"
-              style={{ cursor: "pointer", top: "34%", left: "18%" }}
-              onClick={() => popup(2, 400, 300)}
+              style={{ cursor: "help", top: "6%", left: "53%" }}
+              onMouseEnter={() => popup(4, 300, 50)}
+              onMouseLeave={popdown}
             />
             <div
               className="siteplanBlock"
-              style={{ cursor: "pointer", top: "34%", left: "35%" }}
-              onClick={() => popup(3, 560, 270)}
+              style={{ cursor: "help", top: "-2%", left: "70%" }}
+              onMouseEnter={() => popup(5, 500, 50)}
+              onMouseLeave={popdown}
             />
             <div
               className="siteplanBlock"
-              style={{ cursor: "pointer", top: "6%", left: "53%" }}
-              onClick={() => popup(4, 700, 200)}
+              style={{ cursor: "help", top: "-2%", left: "85%" }}
+              onMouseEnter={() => popup(6, 680, 50)}
+              onMouseLeave={popdown}
             />
             <div
               className="siteplanBlock"
-              style={{ cursor: "pointer", top: "82%", left: "58%" }}
-              onClick={() => popup(5, 700, 400)}
+              style={{ cursor: "help", top: "82%", left: "58%" }}
+              onMouseEnter={() => popup(7, 850, 500)}
+              onMouseLeave={popdown}
             />
             <div
               className="siteplanBlock"
-              style={{ cursor: "pointer", top: "-2%", left: "70%" }}
-              onClick={() => popup(6, 550, 150)}
+              style={{ cursor: "help", top: "60%", left: "88%" }}
+              onMouseEnter={() => popup(8, 570, 200)}
+              onMouseLeave={popdown}
             />
             <div
-              className="siteplanBlock"
-              style={{ cursor: "pointer", top: "-2%", left: "85%" }}
-              onClick={() => popup(7, 750, 150)}
+              className="siteplanBlockSmall"
+              style={{ cursor: "help", top: "51%", left: "70%" }}
+              onMouseEnter={() => popup(9, 500, 320)}
+              onMouseLeave={popdown}
             />
             <div
-              className="siteplanBlock"
-              style={{ cursor: "pointer", top: "60%", left: "88%" }}
-              onClick={() => popup(8, 750, 200)}
+              className="siteplanBlockSmall"
+              style={{ cursor: "help", top: "70%", left: "39%" }}
+              onMouseEnter={() => popup(10, 530, 500)}
+              onMouseLeave={popdown}
+            />
+            <div
+              className="siteplanBlockSmall"
+              style={{ cursor: "help", top: "55%", left: "10%" }}
+              onMouseEnter={() => popup(11, 130, 450)}
+              onMouseLeave={popdown}
+            />
+
+            <div
+              className="siteplanBlockSmall"
+              style={{ cursor: "help", top: "22%", left: "83%" }}
+              onMouseEnter={() => popup(12, 650, 150)}
+              onMouseLeave={popdown}
+            />
+            <div
+              className="siteplanBlockSmall"
+              style={{ cursor: "help", top: "40%", left: "86%" }}
+              onMouseEnter={() => popup(13, 550, 150)}
+              onMouseLeave={popdown}
+            />
+            <div
+              className="siteplanBlockSmall"
+              style={{ cursor: "help", top: "40%", left: "93%" }}
+              onMouseEnter={() => popup(14, 650, 150)}
+              onMouseLeave={popdown}
             />
           </div>
         </div>
@@ -122,7 +205,7 @@ const modalContent0 = (step, poptextfunc, poptext, func) => {
     </div>
   );
 };
-const modalContent1 = (step, poptextfunc, poptext, func) => {
+const modalContent1 = (step, poptextfunc, poptext, popimage, func) => {
   console.log(step);
   return (
     <div>
@@ -176,7 +259,7 @@ class Station5 extends Component {
     }
   }
   poptextfunc = (val) => {
-    this.setState({ poptext: popupText[val] });
+    this.setState({ poptext: popupText[val], popimage: popupImage[val] });
   };
   fadeInOut = (obj, delay) => {
     gsap.to(obj, {
@@ -246,6 +329,7 @@ class Station5 extends Component {
                 this.state.step,
                 this.poptextfunc,
                 this.state.poptext,
+                this.state.popimage,
                 this.state.step === 0 ? this.seq1 : this.fadeIntro
               )}
             </div>
