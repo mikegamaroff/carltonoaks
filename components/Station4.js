@@ -36,17 +36,20 @@ const modalContent0 = () => {
 
 const modalContent1 = (step, func, poptextfunc, poptext) => {
   let i = 0;
-
-  const popup = (val, x, y) => {
+  const popup = (val, x, y, left, top) => {
     poptextfunc(val);
+    document.querySelector(".text-popup").style.left = `${x + left}px`;
+    document.querySelector(".text-popup").style.top = `${y - top}px`;
     gsap.fromTo(
       ".text-popup",
-      { scale: 0, display: "none", x: x, y: y },
+      { scale: 0, display: "none" /* , x: x, y: y */ },
       {
         scale: 1,
         display: "block",
         ease: "power.out",
         duration: 0.2,
+        // onComplete: poptextfunc,
+        // onCompleteParams: [val],
       }
     );
   };
@@ -59,11 +62,23 @@ const modalContent1 = (step, func, poptextfunc, poptext) => {
         display: "none",
         ease: "power.out",
         duration: 0.2,
+        //  onComplete: poptextfunc,
       }
     );
   };
   return (
     <div>
+      <div className="text-popup text-popup-noimage">
+        {/*       <div
+              className="closebtn"
+              onClick={popdown}
+              style={{ cursor: "pointer" }}
+            >
+              <img src="/images/close.png" />
+            </div> */}
+        <div>{poptext}</div>
+      </div>
+
       <div
         /*   onClick={func} */
         className="fullscreen-slide"
@@ -80,108 +95,209 @@ const modalContent1 = (step, func, poptextfunc, poptext) => {
           />
         </div>
         <div className="landUsePlanning-container">
-          <div className="text-popup text-popup-noimage">
-            {/*       <div
-              className="closebtn"
-              onClick={popdown}
-              style={{ cursor: "help" }}
-            >
-              <img src="/images/close.png" />
-            </div> */}
-            <div>{poptext}</div>
-          </div>
-
           <div className="landUseBlock" />
           <div className="landUsePlanning">
             <div className="landUseBlock" />
             <div className="landUseBlock" />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(0, 680, -60)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  0,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div className="landUseBlock" />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(1, 650, -30)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  1,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  -260,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
 
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(2, 190, 140)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  2,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(3, 440, 140)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  3,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(4, 680, 140)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  4,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(5, 400, 140)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  5,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(6, 650, 140)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  6,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  -260,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div className="landUseBlock" />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(7, 440, 300)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  7,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(8, 680, 280)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  8,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(9, 400, 280)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  9,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(10, 650, 280)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  10,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  -260,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div className="landUseBlock" />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(11, 440, 420)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  11,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div className="landUseBlock" />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(12, 400, 420)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  12,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  190,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
             <div
               className="landUseBlock"
-              style={{ cursor: "help" }}
-              onMouseEnter={() => popup(13, 750, 420)}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={(e) =>
+                popup(
+                  13,
+                  e.target.getBoundingClientRect().left,
+                  e.target.getBoundingClientRect().top,
+                  -260,
+                  70
+                )
+              }
               onMouseLeave={popdown}
             />
           </div>
@@ -508,7 +624,7 @@ class Station4 extends Component {
               </div>
             </div>
           </div>
-          {this.state.step > 0 && this.state.step < 2 ? null : (
+          {this.state.step > 0 && this.state.step < 3 ? null : (
             <div className="overlay-footer">
               <div className="overlay-logo">
                 <img src="images/logo.png" />

@@ -8,6 +8,7 @@ import Exhibit2 from "../components/Exhibit2";
 import Station3 from "../components/Station3";
 import Station4 from "../components/Station4";
 import Station5 from "../components/Station5";
+import Station6 from "../components/Station6";
 import GolfVideo from "../components/GolfVideo";
 class Home extends Component {
   constructor(props) {
@@ -40,6 +41,9 @@ class Home extends Component {
   };
   launchStation5 = () => {
     this.setState({ station: 5 });
+  };
+  launchStation6 = () => {
+    this.setState({ station: 6 });
   };
   fadeInOut = (obj) => {
     gsap.to(obj, {
@@ -157,6 +161,17 @@ class Home extends Component {
           {this.state.station === 5 ? (
             <>
               <Station5
+                clearScene={this.clearScene}
+                reset={this.reset}
+                exhibit0={this.exhibit0}
+                fadeInOut={this.fadeInOut}
+                fadeOut={this.fadeOut}
+              />
+            </>
+          ) : null}
+          {this.state.station === 6 ? (
+            <>
+              <Station6
                 clearScene={this.clearScene}
                 reset={this.reset}
                 exhibit0={this.exhibit0}
@@ -402,6 +417,21 @@ class Home extends Component {
                           margin: 0,
                         }}
                         onClick={this.launchStation5}
+                      >
+                        <div className="pulse" />
+                      </div>
+                      <div
+                        className="imacButton"
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          position: "absolute",
+                          top: "90%",
+                          left: "90%",
+                          padding: 0,
+                          margin: 0,
+                        }}
+                        onClick={this.launchStation6}
                       >
                         <div className="pulse" />
                       </div>

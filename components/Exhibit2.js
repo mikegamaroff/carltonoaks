@@ -339,7 +339,11 @@ class Exhibit2 extends Component {
             <div className="infoGraphic-grid" style={{ width: "90%" }}>
               <div className="grid-top">Did you know?</div>
               <div className="infoBlock infoBlockAnim1 ">
-                <div className="infoText">Labor makes up roughly</div>
+                <div className="infoText">
+                  Labor makes
+                  <br />
+                  up roughly
+                </div>
                 <div className="infoPerc">40%</div>
                 <div className="infoText">
                   of Carlton Oaks' operating budget
@@ -347,13 +351,19 @@ class Exhibit2 extends Component {
               </div>
               <div className="infoBlock infoBlockAnim2">
                 <div className="infoText">
-                  The average American golf course uses
+                  The average American
+                  <br />
+                  golf course uses
                 </div>
                 <div className="infoPerc">312k</div>
                 <div className="infoText">gallons of water each day*</div>
               </div>
               <div className="infoBlock infoBlockAnim3">
-                <div className="infoText">Carlton Oaks currently has</div>
+                <div className="infoText">
+                  Carlton Oaks
+                  <br />
+                  currently has
+                </div>
                 <div className="infoPerc">132</div>
                 <div className="infoText">acres of turf irrigation</div>
               </div>
