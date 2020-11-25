@@ -1,22 +1,7 @@
 import React, { Component } from "react";
 import gsap from "gsap";
 import Iframe from "react-iframe";
-const modalContent0 = () => {
-  return (
-    <div>
-      <div className="body-lg">
-        <h1 style={{ marginBottom: 30 }}>
-          The land use planning process can be complicated.
-        </h1>
-        <p>
-          By sharing the process and providing meaningful opportunities to share
-          feedback, we’re optimistic that this can be a positive and productive
-          experience for all of us.
-        </p>
-      </div>
-    </div>
-  );
-};
+import { Link } from "react-router-dom";
 let stage = 0;
 class Station6 extends Component {
   constructor(props) {
@@ -25,7 +10,7 @@ class Station6 extends Component {
   }
   state = {
     step: 0,
-    modalContent: modalContent0,
+    end: false,
   };
 
   clearScene = () => {
@@ -83,7 +68,7 @@ class Station6 extends Component {
   };
 
   fadeIntro = () => {
-    this.props.reset();
+    //  this.props.reset();
     gsap.fromTo(
       ".modal",
       { scale: 1, display: "block" },
@@ -97,7 +82,9 @@ class Station6 extends Component {
       }
     );
   };
-
+  gotoEnd = () => {
+    this.setState({ end: true });
+  };
   resetIntro = () => {
     gsap.to(".modal", {
       display: "none",
@@ -123,9 +110,11 @@ class Station6 extends Component {
               position="relative"
             />
             <div>
-              <div className="button transition" onClick={this.fadeIntro}>
-                BACK GO LOBBY
-              </div>
+              <a href="https://www.carltonoaksinfo.com/open-house-thank-you">
+                <div className="button transition" style={{ width: "auto" }}>
+                  EXIT OPEN HOUSE
+                </div>
+              </a>
             </div>
           </div>
         </div>

@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import gsap from "gsap";
 const popupText = [
-  "0 We kicked off public outreach in January 2020 with the launch of our informational website and FAQs page, door to door outreach to adjacent neighbors, one-on-one and small group meetings with interested community members, and meetings with local community groups.",
-  "1 The second application submittal included changes to the plan based on city comments and community feedback. The application is currently under review by city staff.",
-  "2 A letter was mailed to 950 homeowners who live in the neighborhoods closest to the course. It can be downloaded by visiting www.carltonoaksinfo.com/outreach",
-  "3 Thanks for coming!",
-  "4 We will refine plans to incorporate comments we receive on our second submittal as well as feedback submitted during the open house",
-  "5 This is an iterative process. We will continue to refine and resubmit until the cities deem our application complete.",
-  "6 Public education and education are a very important part of the process. Our team is available for one-on-one and small group meetings. We will also hold more public workshops. We hope you’ll stay involved!",
-  "7 We’ll keep you up to date on project milestones through our website and other outreach mediums.",
-  "8 The Scoping Meeting is your opportunity to provide input on specific issues you’d like to see analyzed in the Environmental Impact Report (EIR).",
-  "9 The EIR evaluates many different categories, including aesthetics, air quality, biological resources, cultural resources, geology and soils, greenhouse gases, hydrology and water quality, noise, traffic and more.",
-  "10 The Draft EIR will be circulated for public review. The public may submit comments or questions on the document.",
-  "11 Once the comment period closes, responses will be prepared. The responses to all comments will be included in the final EIR.",
-  "12 what is the approval process in SD? hearing manager? PC?",
-  "13 A public hearing will be hosted with the Santee City Council.",
+  "We kicked off public outreach in January 2020 with the launch of our informational website and FAQs page, door to door outreach to adjacent neighbors, one-on-one and small group meetings with interested community members, and meetings with local community groups.",
+  "The second application submittal included changes to the plan based on city comments and community feedback. The application is currently under review by city staff.",
+  "A letter was mailed to 950 homeowners who live in the neighborhoods closest to the course. It can be downloaded by visiting www.carltonoaksinfo.com/outreach",
+  "Thanks for coming!",
+  "We will refine plans to incorporate comments we receive on our second submittal as well as feedback submitted during the open house",
+  "This is an iterative process. We will continue to refine and resubmit until the cities deem our application complete.",
+  "Public education and education are a very important part of the process. Our team is available for one-on-one and small group meetings. We will also hold more public workshops. We hope you’ll stay involved!",
+  "We’ll keep you up to date on project milestones through our website and other outreach mediums.",
+  "The Scoping Meeting is your opportunity to provide input on specific issues you’d like to see analyzed in the Environmental Impact Report (EIR).",
+  "The EIR evaluates many different categories, including aesthetics, air quality, biological resources, cultural resources, geology and soils, greenhouse gases, hydrology and water quality, noise, traffic and more.",
+  "The Draft EIR will be circulated for public review. The public may submit comments or questions on the document.",
+  "Once the comment period closes, responses will be prepared. The responses to all comments will be included in the final EIR.",
+  "What is the approval process in SD? hearing manager? PC?",
+  "A public hearing will be hosted with the Santee City Council.",
 ];
 let stage = 0;
 const modalContent0 = () => {
@@ -313,7 +313,22 @@ const modalContent1 = (step, func, poptextfunc, poptext) => {
 const modalContent2 = (step, func) => {
   console.log(step);
   return (
-    <div>
+    <div
+      /*   onClick={func} */
+      className="fullscreen-slide"
+      style={{ cursor: "unset" }}
+    >
+      <div className="text-popup text-popup-noimage">
+        {/*       <div
+              className="closebtn"
+              onClick={popdown}
+              style={{ cursor: "pointer" }}
+            >
+              <img src="/images/close.png" />
+            </div> */}
+        <div style={{ display: "none" }}>{""}</div>
+      </div>
+
       <div className="overlay-button-container">
         <div
           className="overlay-button"
@@ -325,51 +340,9 @@ const modalContent2 = (step, func) => {
         />
       </div>
       <img
-        className="fullscreen-slide"
+        style={{ height: "100%" }}
         src={`/images/station4/Station-4-${step}.jpg`}
       />
-    </div>
-  );
-};
-const modalContent9 = () => {
-  return (
-    <div>
-      <div className="body-sm">
-        <h1 style={{ marginBottom: 30 }}>Community Responsive Planning</h1>
-        <p>
-          We value your feedback and have already made adjustments to the plans
-          for the new Country Club and Resort. Here are some of the changes
-          we've made since our first application submittal (Aug. 2019):
-        </p>
-        <p>
-          No General Plan Amendment! We heard you loud and clear so we've
-          reworked the residential portion in order to avoid a GPA. All
-          residential development will occur in the Planned Development Zone.
-        </p>
-        <p>
-          The size of the hotel has been reduced from 126 rooms to 54 rooms.
-          (There are currently 52 rooms in the existing hotel)
-        </p>
-        <p>
-          The Resport will be two stories, instead of five as originally
-          proposed.
-        </p>
-        <p>
-          We've added cottages to the hotel site as suggested by one of our
-          neighbors on Inverness.
-        </p>
-        <p>
-          We heard from our neighbors that there is an interest in increased
-          membership opportunities and programming. We're working on developing
-          a membership program that includes entertainment, fitness and
-          recreation opportunities for non-golfers, families and the community
-          at-large.
-        </p>
-        <p>
-          We've simplified the scale of the project by eliminating the senior
-          residential component and the condos.
-        </p>
-      </div>
     </div>
   );
 };
@@ -614,14 +587,16 @@ class Station4 extends Component {
                 this.poptextfunc,
                 this.state.poptext
               )}
-              <div>
-                <div
-                  className="button transition"
-                  onClick={this.state.step < 2 ? this.seq1 : this.fadeIntro}
-                >
-                  NEXT
+              {this.state.step < 2 ? (
+                <div>
+                  <div
+                    className="button transition"
+                    onClick={this.state.step < 2 ? this.seq1 : this.fadeIntro}
+                  >
+                    NEXT
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
           {this.state.step > 0 && this.state.step < 3 ? null : (

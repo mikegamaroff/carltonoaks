@@ -7,8 +7,9 @@ const modalContent0 = () => {
     <div>
       <div className="body-lg">
         <h1 style={{ marginBottom: 30 }}>
-          There are many important factors that have to be analyzed prior to
-          preparing a site plan.
+          Location, the General Plan land use designations and site constraints
+          are all analyzed as part of the process to create a comprehensive
+          Master Development Plan.
         </h1>
         <p>
           Location, the General Plan land use designations and site constraints
@@ -28,7 +29,7 @@ const modalContent1 = () => {
           preparing a site plan.
         </h1>
         <p>
-          This vision for Carlton Oaks is the result of numerous technical
+          The vision for Carlton Oaks is the result of numerous technical
           studies, conversations with the City, market analysis, and preliminary
           community engagement.
         </p>
@@ -56,7 +57,8 @@ const modalContent2 = (step, func) => {
           className="overlay-button"
           onClick={func}
           style={{
-            bottom: step < 5 ? "20%" : step > 4 && step < 10 ? "8%" : "90%",
+            bottom:
+              step < 4 ? "20%" : step === 4 ? "45%" : step > 9 ? "90%" : "7%",
             left: step < 5 ? "11%" : "78%",
           }}
         />
@@ -106,7 +108,7 @@ const modalContent19 = () => {
   return (
     <div>
       <div className="body-sm">
-        <h1 style={{ marginBottom: 30 }}>Design measures & Improvements</h1>
+        <h1 style={{ marginBottom: 30 }}>Design Measures & Improvements</h1>
         <ul>
           <li>
             The proposed development areas are primarily located within the
@@ -136,7 +138,7 @@ const modalContent20 = () => {
   return (
     <div>
       <div className="body-sm">
-        <h1 style={{ marginBottom: 30 }}>Design measures & Improvements</h1>
+        <h1 style={{ marginBottom: 30 }}>Design Measures & Improvements</h1>
         <ul>
           <li>
             Geotechnical soil reinforcement will be utilized to ensure that even
@@ -192,9 +194,9 @@ const modalContent22 = () => {
           City as an official record.
         </h1>
         <p>
-          As part of this process, the Floodway and Floodplain will be remapped
-          and all of the residential, Hotel, and Resort areas will be fully
-          removed from any Flood Hazard zones.
+          As part of this process, the floodway and floodplain will be remapped
+          and all of the residential, hotel and resort areas will be fully
+          removed from the floodway and floodplain.
         </p>
       </div>
     </div>

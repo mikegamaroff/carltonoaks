@@ -346,7 +346,9 @@ class Exhibit2 extends Component {
                 </div>
                 <div className="infoPerc">40%</div>
                 <div className="infoText">
-                  of Carlton Oaks' operating budget
+                  of Carlton Oaks'
+                  <br />
+                  operating budget
                 </div>
               </div>
               <div className="infoBlock infoBlockAnim2">

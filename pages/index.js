@@ -4,12 +4,13 @@ import styles from "../styles/Home.module.css";
 import Parallax from "parallax-js";
 import gsap from "gsap";
 import Modal from "../components/Modal";
-import Exhibit2 from "../components/Exhibit2";
+import Station1 from "../components/Station1";
+import GolfVideo from "../components/GolfVideo";
 import Station3 from "../components/Station3";
 import Station4 from "../components/Station4";
 import Station5 from "../components/Station5";
 import Station6 from "../components/Station6";
-import GolfVideo from "../components/GolfVideo";
+import Exhibit2 from "../components/Exhibit2";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -22,16 +23,21 @@ class Home extends Component {
     validated: false,
     exhibit: 0,
     station: 0,
+    step: 1,
     cleared: false,
   };
+
   exhibit0 = () => {
     this.setState({ exhibit: 0, station: 0 });
   };
-  exhibit1 = () => {
-    this.setState({ exhibit: 1 });
-  };
   exhibit2 = () => {
-    this.setState({ exhibit: 2 });
+    this.setState({ exhibit: 2, station: 0 });
+  };
+  launchStation1 = () => {
+    this.setState({ station: 1 /* , step: this.state.step + 2 */ });
+  };
+  launchStation2 = () => {
+    this.setState({ station: 2 });
   };
   launchStation3 = () => {
     this.setState({ station: 3 });
@@ -84,7 +90,7 @@ class Home extends Component {
   }
 
   reset = () => {
-    this.setState({ cleared: false }, () => {
+    this.setState({ cleared: false, step: this.state.step + 1 }, () => {
       var scene = document.getElementById("scene");
       var parallaxInstance = new Parallax(scene, {
         relativeInput: true,
@@ -118,7 +124,17 @@ class Home extends Component {
           {/*     <div className="overlay-container">
             <GolfVideo />
           </div>*/}
-          {this.state.exhibit === 1 ? (
+          {this.state.station === 1 ? (
+            <Station1
+              clearScene={this.clearScene}
+              reset={this.reset}
+              exhibit0={this.exhibit0}
+              fadeInOut={this.fadeInOut}
+              fadeOut={this.fadeOut}
+              goNext={this.goNext}
+            />
+          ) : null}
+          {this.state.station === 2 ? (
             <GolfVideo
               clearScene={this.clearScene}
               reset={this.reset}
@@ -127,13 +143,16 @@ class Home extends Component {
               exhibit2={this.exhibit2}
               fadeInOut={this.fadeInOut}
               fadeOut={this.fadeOut}
+              goNext={this.goNext}
             />
           ) : null}
           {this.state.exhibit === 2 ? (
             <Exhibit2
               clearScene={this.clearScene}
               reset={this.reset}
+              fadeIntro={this.fadeIntro}
               exhibit0={this.exhibit0}
+              exhibit2={this.exhibit2}
               fadeInOut={this.fadeInOut}
               fadeOut={this.fadeOut}
             />
@@ -145,6 +164,7 @@ class Home extends Component {
               exhibit0={this.exhibit0}
               fadeInOut={this.fadeInOut}
               fadeOut={this.fadeOut}
+              goNext={this.goNext}
             />
           ) : null}
           {this.state.station === 4 ? (
@@ -155,6 +175,7 @@ class Home extends Component {
                 exhibit0={this.exhibit0}
                 fadeInOut={this.fadeInOut}
                 fadeOut={this.fadeOut}
+                goNext={this.goNext}
               />
             </>
           ) : null}
@@ -166,6 +187,7 @@ class Home extends Component {
                 exhibit0={this.exhibit0}
                 fadeInOut={this.fadeInOut}
                 fadeOut={this.fadeOut}
+                goNext={this.goNext}
               />
             </>
           ) : null}
@@ -177,6 +199,7 @@ class Home extends Component {
                 exhibit0={this.exhibit0}
                 fadeInOut={this.fadeInOut}
                 fadeOut={this.fadeOut}
+                goNext={this.goNext}
               />
             </>
           ) : null}
@@ -300,7 +323,21 @@ class Home extends Component {
                         }}
                       />
                     </div>
-                    <div style={{ marginTop: "0px" }} data-depth="0.3">
+                    <div
+                      style={{
+                        marginTop: "0px",
+                        /*     pointerEvents:
+                          this.state.step === 3 || this.state.step === 4
+                            ? "all"
+                            : "none", */
+                      }}
+                      /*  className={
+                        this.state.step === 3 || this.state.step === 4
+                          ? "pointerAll"
+                          : "pointerNone"
+                      } */
+                      data-depth="0.3"
+                    >
                       <img
                         className="disabled"
                         src="/images/middle.png"
@@ -309,6 +346,40 @@ class Home extends Component {
                           transform: "translateY(50%)",
                         }}
                       />
+                      {this.state.step === 3 ? (
+                        <div
+                          className="imacButton"
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "absolute",
+                            top: "110%",
+                            left: "40%",
+                            padding: 0,
+                            margin: 0,
+                          }}
+                          onClick={this.launchStation3}
+                        >
+                          <div className="pulse" />
+                        </div>
+                      ) : null}
+                      {this.state.step === 4 ? (
+                        <div
+                          className="imacButton"
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "absolute",
+                            top: "109%",
+                            left: "64%",
+                            padding: 0,
+                            margin: 0,
+                          }}
+                          onClick={this.launchStation4}
+                        >
+                          <div className="pulse" />
+                        </div>
+                      ) : null}
                     </div>
 
                     <div
@@ -317,7 +388,16 @@ class Home extends Component {
                         position: "absolute",
                       }}
                       data-depth="0.4"
+                      className={
+                        this.state.step === 1 ||
+                        this.state.step === 2 ||
+                        this.state.step === 5 ||
+                        this.state.step === 6
+                          ? "pointerAll"
+                          : "pointerNone"
+                      }
                     >
+                      {/* {alert(this.state.step)} */}
                       <img
                         className="disabled"
                         src="/images/front.png"
@@ -343,98 +423,75 @@ class Home extends Component {
                         <div className="pulse" />
                       </div> */}
 
-                      <div
-                        className="imacButton"
-                        style={{
-                          id: "golf",
-                          width: "20px",
-                          height: "20px",
-                          position: "absolute",
-                          top: "92%",
-                          left: "26.3%",
-                          padding: 0,
-                          margin: 0,
-                        }}
-                        onClick={this.exhibit1}
-                      >
-                        <div className="pulse" />
-                      </div>
-                      <div
-                        className="imacButton"
-                        style={{
-                          width: "20px",
-                          height: "20px",
-                          position: "absolute",
-                          top: "80%",
-                          left: "40%",
-                          padding: 0,
-                          margin: 0,
-                        }}
-                        onClick={this.exhibit2}
-                      >
-                        <div className="pulse" />
-                      </div>
-
-                      <div
-                        className="imacButton"
-                        style={{
-                          width: "20px",
-                          height: "20px",
-                          position: "absolute",
-                          top: "92%",
-                          left: "53%",
-                          padding: 0,
-                          margin: 0,
-                        }}
-                        onClick={this.launchStation3}
-                      >
-                        <div className="pulse" />
-                      </div>
-                      <div
-                        className="imacButton"
-                        style={{
-                          width: "20px",
-                          height: "20px",
-                          position: "absolute",
-                          top: "90%",
-                          left: "63%",
-                          padding: 0,
-                          margin: 0,
-                        }}
-                        onClick={this.launchStation4}
-                      >
-                        <div className="pulse" />
-                      </div>
-                      <div
-                        className="imacButton"
-                        style={{
-                          width: "20px",
-                          height: "20px",
-                          position: "absolute",
-                          top: "90%",
-                          left: "80%",
-                          padding: 0,
-                          margin: 0,
-                        }}
-                        onClick={this.launchStation5}
-                      >
-                        <div className="pulse" />
-                      </div>
-                      <div
-                        className="imacButton"
-                        style={{
-                          width: "20px",
-                          height: "20px",
-                          position: "absolute",
-                          top: "90%",
-                          left: "90%",
-                          padding: 0,
-                          margin: 0,
-                        }}
-                        onClick={this.launchStation6}
-                      >
-                        <div className="pulse" />
-                      </div>
+                      {this.state.step === 1 ? (
+                        <div
+                          className="imacButton"
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "absolute",
+                            top: "92%",
+                            left: "53%",
+                            padding: 0,
+                            margin: 0,
+                          }}
+                          onClick={this.launchStation1}
+                        >
+                          <div className="pulse" />
+                        </div>
+                      ) : null}
+                      {this.state.step === 2 ? (
+                        <div
+                          className="imacButton"
+                          style={{
+                            id: "golf",
+                            width: "20px",
+                            height: "20px",
+                            position: "absolute",
+                            top: "92%",
+                            left: "26.3%",
+                            padding: 0,
+                            margin: 0,
+                          }}
+                          onClick={this.launchStation2}
+                        >
+                          <div className="pulse" />
+                        </div>
+                      ) : null}
+                      {this.state.step === 5 ? (
+                        <div
+                          className="imacButton"
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "absolute",
+                            top: "90%",
+                            left: "80%",
+                            padding: 0,
+                            margin: 0,
+                          }}
+                          onClick={this.launchStation5}
+                        >
+                          <div className="pulse" />
+                        </div>
+                      ) : null}
+                      {this.state.step === 6 ? (
+                        <div
+                          className="imacButton"
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "absolute",
+                            top: "90%",
+                            left: "90%",
+                            padding: 0,
+                            margin: 0,
+                          }}
+                          onClick={this.launchStation6}
+                        >
+                          <div className="pulse" />
+                        </div>
+                      ) : null}
                     </div>
                     {/*           <div
                       style={{

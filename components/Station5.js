@@ -379,46 +379,36 @@ const modalContent1 = (step, poptextfunc, poptext, popimage, func) => {
     );
   };
   return (
-    <div>
-      <div
-        className={`text-popup ${
-          popimage ? "text-popup-image" : "text-popup-noimage"
-        }`}
-      >
-        {/*   <div
-              className="closebtn"
-              onClick={popdown}
-              style={{ cursor: "pointer" }}
-            >
-              <img src="/images/close.png" />
-            </div> */}
-        <div>{poptext}</div>
-        {popimage && popimage !== "video" ? (
-          <>
-            <div style={{ marginTop: 15 }}>
-              <img src={`/images/station5/${popimage}`} />
-            </div>
-          </>
-        ) : null}
+    <div
+      /*   onClick={func} */
+      className="fullscreen-slide"
+      style={{ cursor: "unset" }}
+    >
+      <div className="text-popup text-popup-noimage">
+        {/*       <div
+            className="closebtn"
+            onClick={popdown}
+            style={{ cursor: "pointer" }}
+          >
+            <img src="/images/close.png" />
+          </div> */}
+        <div style={{ display: "none" }}>{""}</div>
       </div>
       <div className="overlay-button-container">
         <div
           className="overlay-button"
           onClick={func}
           style={{
-            bottom: 80,
-            right: 170,
+            bottom: "5vw",
+            right: "5vw",
           }}
         />
       </div>
 
-      <div className="fullscreen-slide" style={{ cursor: "auto" }}>
-        <img
-          className="fullscreen-slide"
-          style={{ cursor: "auto" }}
-          src={`/images/station5/Station-5-1.jpg`}
-        />
-      </div>
+      <img
+        style={{ height: "100%", cursor: "auto" }}
+        src={`/images/station5/Station-5-1.jpg`}
+      />
     </div>
   );
 };
@@ -502,7 +492,7 @@ class Station5 extends Component {
   };
 
   fadeIntro = () => {
-    //  this.props.reset();
+    this.props.reset();
 
     gsap.fromTo(
       ".modal",

@@ -123,7 +123,7 @@ video {
 .overlay-content-courses {
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 50%;
   transform: translate(-50%, -50%);
   background: rgba(255, 255, 255, 0.822);
   display: flex;
@@ -289,7 +289,7 @@ video {
   width: 120px;
 }
 .body-sm {
-  font-size: 20px;
+  font-size: 17px;
   line-height: 1.5;
   text-align: left;
 }
@@ -358,6 +358,13 @@ video {
 .pulseHollow:hover {
   cursor: pointer;
 }
+.pointerNone {
+  pointer-events: none;
+}
+.pointerAll {
+  pointer-events: all;
+}
+
 .landUsePlanning {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -447,6 +454,7 @@ video {
 .closebtn img {
   width: 40px;
 }
+
 /* under 900 */
 @media only screen and (max-width: 900px) {
   .sceneContainer {
