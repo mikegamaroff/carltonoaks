@@ -582,7 +582,7 @@ class Home extends Component {
           <div className="overlay-container zindex2 exhibit2">
             <div className="center-top">
               <div className="overlay-logo" style={{ margin: 40 }}>
-                <img src="images/logo.png" />
+                <img src="images/logog.png" />
               </div>
               <div className="white-fade" style={{ padding: 20 }}>
                 <YouTube
