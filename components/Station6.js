@@ -109,12 +109,17 @@ class Station6 extends Component {
               display="initial"
               position="relative"
             />
-            <div>
-              <a href="https://www.carltonoaksinfo.com/open-house-thank-you">
-                <div className="button transition" style={{ width: "auto" }}>
-                  EXIT OPEN HOUSE
-                </div>
-              </a>
+            <div style={{ display: "flex", gridGap: 30 }}>
+              <div className="button transition" onClick={this.fadeIntro}>
+                BACK TO LOBBY
+              </div>
+              <div>
+                <a href="https://www.carltonoaksinfo.com/open-house-thank-you">
+                  <div className="button transition" style={{ width: "auto" }}>
+                    EXIT OPEN HOUSE
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>

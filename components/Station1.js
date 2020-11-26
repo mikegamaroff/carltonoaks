@@ -78,7 +78,7 @@ class Station1 extends Component {
             />
             <div>
               <div className="button transition" onClick={this.fadeIntro}>
-                BACK GO LOBBY
+                BACK TO LOBBY
               </div>
             </div>
           </div>

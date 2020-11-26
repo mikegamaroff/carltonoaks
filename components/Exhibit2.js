@@ -180,7 +180,7 @@ class Exhibit2 extends Component {
   };
 
   seq3 = () => {
-    this.fadeInOut(".subcontent", 4);
+    this.fadeInOut(".subcontent", 6);
 
     gsap.fromTo(
       ".infoBlockAnim2",
@@ -193,7 +193,7 @@ class Exhibit2 extends Component {
         display: "block",
         opacity: 1,
         y: 0,
-        delay: 4,
+        delay: 6,
         ease: "circ.inOut",
         duration: 1,
         onComplete: this.seq4,
@@ -207,7 +207,7 @@ class Exhibit2 extends Component {
         display: "block",
         opacity: 1,
         y: 0,
-        delay: 4,
+        delay: 6,
         ease: "circ.inOut",
         duration: 1,
       }
@@ -223,7 +223,7 @@ class Exhibit2 extends Component {
     });
   }; */
   seq4 = () => {
-    this.fadeInOut(".subcontent", 4);
+    this.fadeInOut(".subcontent", 6);
     gsap.to(
       ".asterisk",
 
@@ -231,7 +231,7 @@ class Exhibit2 extends Component {
         display: "none",
         opacity: 0,
         y: 0,
-        delay: 4,
+        delay: 6,
         ease: "circ.inOut",
         duration: 1,
       }
@@ -247,7 +247,7 @@ class Exhibit2 extends Component {
         display: "block",
         opacity: 1,
         y: 0,
-        delay: 4,
+        delay: 6,
         ease: "circ.inOut",
         duration: 1,
         onComplete: this.seq5,
@@ -255,30 +255,30 @@ class Exhibit2 extends Component {
     );
   };
   seq5 = () => {
-    this.fadeInOut(".subcontent", 4);
+    this.fadeInOut(".subcontent", 6);
     gsap.to(".infoBlockAnim3", {
       opacity: 1,
-      delay: 4,
+      delay: 6,
       onComplete: this.seq6,
     });
   };
   seq6 = () => {
-    this.fadeOut(".infoBlockAnim1", 3.1);
-    this.fadeOut(".infoBlockAnim2", 3.2);
-    this.fadeOut(".infoBlockAnim3", 3.3);
+    this.fadeOut(".infoBlockAnim1", 5.1);
+    this.fadeOut(".infoBlockAnim2", 5.2);
+    this.fadeOut(".infoBlockAnim3", 5.3);
     gsap.to(".subcontent", {
       opacity: 0,
       display: "none",
       ease: "circ.inOut",
       duration: 0.5,
-      delay: 4,
+      delay: 6,
     });
     gsap.to(".grid-top", {
       opacity: 0,
       display: "none",
       ease: "circ.inOut",
       duration: 1,
-      delay: 3.5,
+      delay: 5.5,
     });
     gsap.to(".whitePanel", {
       css: {
@@ -287,7 +287,7 @@ class Exhibit2 extends Component {
         height: "60%",
         top: "50%",
       },
-      delay: 4,
+      delay: 6,
       ease: "circ.inOut",
       duration: 1,
       onComplete: this.seq7,

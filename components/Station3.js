@@ -7,9 +7,8 @@ const modalContent0 = () => {
     <div>
       <div className="body-lg">
         <h1 style={{ marginBottom: 30 }}>
-          Location, the General Plan land use designations and site constraints
-          are all analyzed as part of the process to create a comprehensive
-          Master Development Plan.
+          There are many important factors that have to be analyzed prior to
+          preparing a site plan.
         </h1>
         <p>
           Location, the General Plan land use designations and site constraints

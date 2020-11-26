@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import gsap from "gsap";
+import YouTube from "react-youtube";
 const popupText = [
   "We kicked off public outreach in January 2020 with the launch of our informational website and FAQs page, door to door outreach to adjacent neighbors, one-on-one and small group meetings with interested community members, and meetings with local community groups.",
   "The second application submittal included changes to the plan based on city comments and community feedback. The application is currently under review by city staff.",
@@ -19,6 +20,24 @@ const popupText = [
 let stage = 0;
 const modalContent0 = () => {
   return (
+    <div style={{ padding: 30 }}>
+      <YouTube
+        videoId="ENNV48phh4U"
+        opts={{
+          height: "400px",
+          width: "800px",
+          playerVars: {
+            // https://developers.google.com/youtube/player_parameters
+            autoplay: 1,
+          },
+        }}
+        /*  onReady={this._onReady} */
+      />
+    </div>
+  );
+};
+const modalContent1 = () => {
+  return (
     <div>
       <div className="body-lg">
         <h1 style={{ marginBottom: 30 }}>
@@ -34,7 +53,7 @@ const modalContent0 = () => {
   );
 };
 
-const modalContent1 = (step, func, poptextfunc, poptext) => {
+const modalContent2 = (step, func, poptextfunc, poptext) => {
   let i = 0;
   const popup = (val, x, y, left, top) => {
     poptextfunc(val);
@@ -310,7 +329,7 @@ const modalContent1 = (step, func, poptextfunc, poptext) => {
     </div>
   );
 };
-const modalContent2 = (step, func) => {
+const modalContent3 = (step, func) => {
   console.log(step);
   return (
     <div
@@ -412,135 +431,6 @@ class Station4 extends Component {
   seq1 = () => {
     this.fadeInOut(".content");
   };
-  seq2 = () => {
-    gsap.to(".grid-top", {
-      opacity: 1,
-      display: "block",
-      ease: "circ.inOut",
-      duration: 1,
-    });
-    gsap.to(".subcontent", {
-      opacity: 1,
-      display: "flex",
-      ease: "circ.inOut",
-      duration: 1,
-    });
-    gsap.fromTo(
-      ".infoBlockAnim1",
-      {
-        opacity: 0,
-        y: -30,
-        display: "none",
-      },
-      {
-        display: "block",
-        opacity: 1,
-        y: 0,
-
-        ease: "circ.inOut",
-        duration: 1,
-        onComplete: this.seq3,
-      }
-    );
-  };
-
-  seq3 = () => {
-    this.fadeInOut(".subcontent", 3);
-    gsap.fromTo(
-      ".infoBlockAnim2",
-      {
-        opacity: 0,
-        y: -30,
-        display: "none",
-      },
-      {
-        display: "block",
-        opacity: 1,
-        y: 0,
-        delay: 3,
-        ease: "circ.inOut",
-        duration: 1,
-        onComplete: this.seq4,
-      }
-    );
-  };
-  /*   seq4 = () => {
-    this.fadeInOut(".subcontent", 3);
-    gsap.to(".infoBlockAnim3", {
-      opacity: 0,
-      delay: 3,
-      onComplete: this.seq5,
-    });
-  }; */
-  seq4 = () => {
-    this.fadeInOut(".subcontent", 3);
-    gsap.fromTo(
-      ".infoBlockAnim3",
-      {
-        opacity: 0,
-        y: -30,
-        display: "none",
-      },
-      {
-        display: "block",
-        opacity: 1,
-        y: 0,
-        delay: 3,
-        ease: "circ.inOut",
-        duration: 1,
-        onComplete: this.seq5,
-      }
-    );
-  };
-  seq5 = () => {
-    this.fadeInOut(".subcontent", 3);
-    gsap.to(".infoBlockAnim3", {
-      opacity: 1,
-      delay: 3,
-      onComplete: this.seq6,
-    });
-  };
-  seq6 = () => {
-    this.fadeOut(".infoBlockAnim1", 3.1);
-    this.fadeOut(".infoBlockAnim2", 3.2);
-    this.fadeOut(".infoBlockAnim3", 3.3);
-    gsap.to(".subcontent", {
-      opacity: 0,
-      display: "none",
-      ease: "circ.inOut",
-      duration: 0.5,
-      delay: 3,
-    });
-    gsap.to(".grid-top", {
-      opacity: 0,
-      display: "none",
-      ease: "circ.inOut",
-      duration: 1,
-      delay: 2.5,
-    });
-    gsap.to(".whitePanel", {
-      css: {
-        maxWidth: "1100px",
-        width: "75%",
-        height: "60%",
-        top: "50%",
-      },
-      delay: 3,
-      ease: "circ.inOut",
-      duration: 1,
-      onComplete: this.seq7,
-    });
-  };
-  seq7 = () => {
-    this.setState({ modalContent: modalContent2 });
-
-    gsap.to(".content", {
-      opacity: 1,
-      display: "flex",
-      ease: "circ.inOut",
-      duration: 1,
-    });
-  };
 
   fadeIntro = () => {
     this.props.reset();
@@ -575,7 +465,7 @@ class Station4 extends Component {
         <div className="overlay-container4 zindex2 modal">
           <div
             className={
-              this.state.step === 0
+              this.state.step === 0 || this.state.step === 1
                 ? "overlay-content whitePanel"
                 : "overlay-full black whitePanel"
             }
@@ -583,15 +473,15 @@ class Station4 extends Component {
             <div className="center-content content" ref="modalcontent">
               {eval(`modalContent${this.state.step}`)(
                 this.state.step,
-                this.state.step < 2 ? this.seq1 : this.fadeIntro,
+                this.state.step < 3 ? this.seq1 : this.fadeIntro,
                 this.poptextfunc,
                 this.state.poptext
               )}
-              {this.state.step < 2 ? (
+              {this.state.step < 3 ? (
                 <div>
                   <div
                     className="button transition"
-                    onClick={this.state.step < 2 ? this.seq1 : this.fadeIntro}
+                    onClick={this.state.step < 3 ? this.seq1 : this.fadeIntro}
                   >
                     NEXT
                   </div>
@@ -599,7 +489,7 @@ class Station4 extends Component {
               ) : null}
             </div>
           </div>
-          {this.state.step > 0 && this.state.step < 3 ? null : (
+          {this.state.step < 2 ? (
             <div className="overlay-footer">
               <div className="overlay-logo">
                 <img src="images/logo.png" />
@@ -608,7 +498,7 @@ class Station4 extends Component {
                 Station 4 – Community Outreach
               </div>
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     );

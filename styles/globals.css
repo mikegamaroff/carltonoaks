@@ -359,9 +359,11 @@ video {
   cursor: pointer;
 }
 .pointerNone {
+  /*   pointer-events: all; */
   pointer-events: none;
 }
 .pointerAll {
+  /*   pointer-events: none; */
   pointer-events: all;
 }
 

@@ -250,7 +250,7 @@ class Home extends Component {
                     >
                       <img
                         className="disabled"
-                        /*  onClick={() => console.log("fuck")} */
+                        /*  onClick={() => console.log("droll")} */
                         src="/images/floor_01.jpg"
                         style={{
                           width: "calc(100% + 20px)",
@@ -346,7 +346,7 @@ class Home extends Component {
                           transform: "translateY(50%)",
                         }}
                       />
-                      {this.state.step === 3 ? (
+                      {this.state.step === 3 /* || !this.state.droll */ ? (
                         <div
                           className="imacButton"
                           style={{
@@ -363,7 +363,7 @@ class Home extends Component {
                           <div className="pulse" />
                         </div>
                       ) : null}
-                      {this.state.step === 4 ? (
+                      {this.state.step === 4 /* || !this.state.droll */ ? (
                         <div
                           className="imacButton"
                           style={{
@@ -418,12 +418,12 @@ class Home extends Component {
                           padding: 0,
                           margin: 0,
                         }}
-                        onClick={() => console.log("fuck")}
+                        onClick={() => console.log("droll")}
                       >
                         <div className="pulse" />
                       </div> */}
 
-                      {this.state.step === 1 ? (
+                      {this.state.step === 1 /* || !this.state.droll */ ? (
                         <div
                           className="imacButton"
                           style={{
@@ -440,7 +440,7 @@ class Home extends Component {
                           <div className="pulse" />
                         </div>
                       ) : null}
-                      {this.state.step === 2 ? (
+                      {this.state.step === 2 /* || !this.state.droll */ ? (
                         <div
                           className="imacButton"
                           style={{
@@ -458,7 +458,7 @@ class Home extends Component {
                           <div className="pulse" />
                         </div>
                       ) : null}
-                      {this.state.step === 5 ? (
+                      {this.state.step === 5 /* || !this.state.droll */ ? (
                         <div
                           className="imacButton"
                           style={{
@@ -475,7 +475,7 @@ class Home extends Component {
                           <div className="pulse" />
                         </div>
                       ) : null}
-                      {this.state.step === 6 ? (
+                      {this.state.step === 6 /* || !this.state.droll */ ? (
                         <div
                           className="imacButton"
                           style={{
@@ -492,6 +492,23 @@ class Home extends Component {
                           <div className="pulse" />
                         </div>
                       ) : null}
+                      {/*           {this.state.step === 6  || !this.state.droll ? (
+                        <div
+                          className="imacButton"
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "absolute",
+                            top: "95%",
+                            left: "90%",
+                            padding: 0,
+                            margin: 0,
+                          }}
+                          onClick={this.exhibit2}
+                        >
+                          <div className="pulse" />
+                        </div>
+                      ) : null} */}
                     </div>
                     {/*           <div
                       style={{
