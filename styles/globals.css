@@ -22,6 +22,7 @@ video {
 }
 
 .center-content,
+.center-top,
 .center-vertical {
   display: flex;
   justify-content: center;
@@ -31,6 +32,9 @@ video {
   flex-direction: column;
   position: relative;
   height: 100%;
+}
+.center-top {
+  flex-direction: column;
 }
 .transition {
   -moz-transition: 0.2s ease-out;
@@ -118,6 +122,9 @@ video {
 }
 .white {
   background: rgb(255, 255, 255);
+}
+.white-fade {
+  background: rgba(255, 255, 255, 0.644);
 }
 .overlay-content,
 .overlay-content-courses {
@@ -456,7 +463,12 @@ video {
 .closebtn img {
   width: 40px;
 }
-
+.WelcomeText {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
 /* under 900 */
 @media only screen and (max-width: 900px) {
   .sceneContainer {
