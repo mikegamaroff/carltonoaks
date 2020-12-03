@@ -58,7 +58,20 @@ class Station1 extends Component {
     });
     this.setState({ step: 0 });
   };
-
+  endVid = () => {
+    gsap.fromTo(
+      ".button-appear",
+      { scale: 0, visibility: "hidden", pointerEvents: "none" },
+      {
+        scale: 1,
+        visibility: "visible",
+        pointerEvents: "all",
+        ease: "circ.inOut",
+        duration: 1,
+        /* onComplete: this.clearScene, */
+      }
+    );
+  };
   render() {
     return (
       <div>
@@ -66,9 +79,10 @@ class Station1 extends Component {
           <div className="center-content content">
             <YouTube
               videoId="P1m__bakTJ0"
+              onEnd={this.endVid}
               opts={{
-                height: "400px",
-                width: "800px",
+                height: "350px",
+                width: "700px",
                 playerVars: {
                   // https://developers.google.com/youtube/player_parameters
                   autoplay: 1,
@@ -76,7 +90,7 @@ class Station1 extends Component {
               }}
               /*  onReady={this._onReady} */
             />
-            <div>
+            <div className="button-appear">
               <div className="button transition" onClick={this.fadeIntro}>
                 BACK TO LOBBY
               </div>

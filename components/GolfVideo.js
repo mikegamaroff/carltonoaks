@@ -312,7 +312,7 @@ class GolfVideo extends Component {
       this.nextButton.current,
       { scale: val, opacity: val },
       {
-        delay: val === 0 ? /* 3 */ 0 : 0,
+        delay: val === 0 ? 3 : 0, //  BUTTON DELAY
         scale: val === 0 ? 1 : 0,
         opacity: val === 0 ? 1 : 0,
         ease: val === 0 ? "elastic.out(1, 0.3)" : "circ.out",

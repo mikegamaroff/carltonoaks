@@ -27,7 +27,7 @@ const popupText = [
   "The housing and resort architecture embody the elements of Santee’s history through a mixture of modern cottage, modern prairie, and contemporary Spanish styles.",
   "15 acres of existing natural areas will be retained on site. Remaining out of play areas will be landscaped with native plants which require little to no maintenance.",
   "New community features will define the “sense of place” with amenities and activities for the entire family, including a new swimming pool, event lawns, wellness center, and a redesigned eighteen-hole golf course. Country Club Memberships will be available to the community which are envisioned to provide exclusive access to social programming.",
-  "Carlton Oaks would develop a dedicated driving range with covered hitting areas. Updated practice facilities for chipping and putting are also included.",
+  "Carlton Oaks will develop a dedicated driving range with covered hitting areas. Updated practice facilities for chipping and putting are also included.",
 ];
 
 const popupImage = [

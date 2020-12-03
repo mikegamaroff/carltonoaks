@@ -18,14 +18,16 @@ const popupText = [
   "A public hearing will be hosted with the Santee City Council.",
 ];
 let stage = 0;
-const modalContent0 = () => {
+const modalContent0 = (a, b, c, d, endVid) => {
   return (
-    <div style={{ padding: 30 }}>
+    <div style={{ paddingTop: 30 }}>
       <YouTube
         videoId="ENNV48phh4U"
+        onEnd={endVid}
         opts={{
-          height: "400px",
-          width: "800px",
+          height: "300px",
+          width: "600px",
+
           playerVars: {
             // https://developers.google.com/youtube/player_parameters
             autoplay: 1,
@@ -401,6 +403,20 @@ class Station4 extends Component {
   poptextfunc = (val) => {
     this.setState({ poptext: popupText[val] });
   };
+  endVid = () => {
+    gsap.fromTo(
+      ".button-appear",
+      { scale: 0, visibility: "hidden", pointerEvents: "none" },
+      {
+        scale: 1,
+        visibility: "visible",
+        pointerEvents: "all",
+        ease: "circ.inOut",
+        duration: 1,
+        /* onComplete: this.clearScene, */
+      }
+    );
+  };
   fadeInOut = (obj, delay) => {
     gsap.to(obj, {
       opacity: 0,
@@ -475,10 +491,11 @@ class Station4 extends Component {
                 this.state.step,
                 this.state.step < 3 ? this.seq1 : this.fadeIntro,
                 this.poptextfunc,
-                this.state.poptext
+                this.state.poptext,
+                this.endVid
               )}
               {this.state.step < 3 ? (
-                <div>
+                <div className="button-appear">
                   <div
                     className="button transition"
                     onClick={this.state.step < 3 ? this.seq1 : this.fadeIntro}
