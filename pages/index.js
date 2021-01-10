@@ -360,7 +360,7 @@ class Home extends Component {
                             transform: "translateY(50%)",
                           }}
                         />
-                        {this.state.step === 3 /* || !this.state.droll */ ? (
+                        {this.state.step === 3 || !this.state.droll ? (
                           <div
                             className="imacButton"
                             style={{
@@ -377,7 +377,7 @@ class Home extends Component {
                             <div className="pulse" />
                           </div>
                         ) : null}
-                        {this.state.step === 4 /* || !this.state.droll */ ? (
+                        {this.state.step === 4 || !this.state.droll ? (
                           <div
                             className="imacButton"
                             style={{
@@ -437,7 +437,7 @@ class Home extends Component {
                         <div className="pulse" />
                       </div> */}
 
-                        {this.state.step === 1 /* || !this.state.droll */ ? (
+                        {this.state.step === 1 || !this.state.droll ? (
                           <div
                             className="imacButton"
                             style={{
@@ -454,7 +454,7 @@ class Home extends Component {
                             <div className="pulse" />
                           </div>
                         ) : null}
-                        {this.state.step === 2 /* || !this.state.droll */ ? (
+                        {this.state.step === 2 || !this.state.droll ? (
                           <div
                             className="imacButton"
                             style={{
@@ -472,7 +472,7 @@ class Home extends Component {
                             <div className="pulse" />
                           </div>
                         ) : null}
-                        {this.state.step === 5 /* || !this.state.droll */ ? (
+                        {this.state.step === 5 || !this.state.droll ? (
                           <div
                             className="imacButton"
                             style={{
@@ -489,7 +489,7 @@ class Home extends Component {
                             <div className="pulse" />
                           </div>
                         ) : null}
-                        {this.state.step === 6 /* || !this.state.droll */ ? (
+                        {this.state.step === 6 || !this.state.droll ? (
                           <div
                             className="imacButton"
                             style={{
@@ -585,7 +585,7 @@ class Home extends Component {
                 <img src="images/logog.png" />
               </div>
               <div className="white-fade" style={{ padding: 20 }}>
-                <YouTube
+                {/*     <YouTube
                   videoId="vDFX-3BXALw"
                   opts={{
                     height: "200px",
@@ -595,8 +595,8 @@ class Home extends Component {
                       autoplay: 1,
                     },
                   }}
-                  /*  onReady={this._onReady} */
-                />
+             onReady={this._onReady}
+                  /> */}
                 <div className="WelcomeText">
                   Welcome to Carlton Oaks Open House.
                   <br />
