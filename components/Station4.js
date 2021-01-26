@@ -15,14 +15,14 @@ const popupText = [
   "The Draft EIR will be circulated for public review. The public may submit comments or questions on the document.",
   "Once the comment period closes, responses will be prepared. The responses to all comments will be included in the final EIR.",
   "What is the approval process in SD? hearing manager? PC?",
-  "A public hearing will be hosted with the Santee City Council.",
+  "A public hearing will be hosted with the San Diego Planning Commission.",
 ];
 let stage = 0;
 const modalContent0 = (a, b, c, d, endVid) => {
   return (
     <div style={{ paddingTop: 30 }}>
       <YouTube
-        videoId="ENNV48phh4U"
+        videoId="IxYuytPD6Ac"
         onEnd={endVid}
         opts={{
           height: "300px",
@@ -479,6 +479,9 @@ class Station4 extends Component {
     return (
       <div>
         <div className="overlay-container4 zindex2 modal">
+          <a href="/" className="backButton transition back">
+            «
+          </a>
           <div
             className={
               this.state.step === 0 || this.state.step === 1

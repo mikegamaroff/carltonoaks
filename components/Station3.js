@@ -37,7 +37,6 @@ const modalContent1 = () => {
   );
 };
 const modalContent2 = (step, func) => {
-  console.log(func);
   return (
     /*     <div onClick={func}>
       <img
@@ -427,6 +426,9 @@ class Station3 extends Component {
     return (
       <div>
         <div className="overlay-container3 zindex2 modal">
+          <a href="/" className="backButton transition back">
+            «
+          </a>
           <div>
             <div className="infoGraphic-grid" style={{ width: "90%" }}>
               <div className="grid-top">Did you know?</div>

@@ -522,6 +522,9 @@ class Station5 extends Component {
     return (
       <div>
         <div className="overlay-container4 zindex2 modal">
+          <a href="/" className="backButton transition back">
+            «
+          </a>
           <div className={"overlay-full white whitePanel"}>
             <div className="center-content content" ref="modalcontent">
               {this.state.modalContent(

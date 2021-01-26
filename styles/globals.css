@@ -319,6 +319,29 @@ video {
   bottom: 15px;
   right: 15px;
 }
+.back {
+  position: absolute;
+  z-index: 4;
+  top: 15px;
+  left: 15px;
+}
+.backButton {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  height: 50px;
+  width: 50px;
+  background-color: #dba15d;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .button {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -355,6 +378,14 @@ video {
   width: 100%;
   height: 100%;
   border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
 
   /*   box-shadow: 0 3px 20px 5px #ffae00, inset 0 0 20px 0px #bbea4c; */
 }

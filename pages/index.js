@@ -291,7 +291,7 @@ class Home extends Component {
                           style={{
                             width: "50%",
 
-                            transform: "translate(75%, 25%)",
+                            transform: "translate(70%, 25%)",
                           }}
                         />
                       </div>
@@ -360,6 +360,7 @@ class Home extends Component {
                             transform: "translateY(50%)",
                           }}
                         />
+                        {/* BACK PULSES */}
                         {/*    {this.state.step === 3 || !this.state.droll ? (
                           <div
                             className="imacButton"
@@ -374,7 +375,7 @@ class Home extends Component {
                             }}
                             onClick={this.launchStation3}
                           >
-                            <div className="pulse" />
+                            <div className="pulse">3</div>
                           </div>
                         ) : null}
                         {this.state.step === 4 || !this.state.droll ? (
@@ -391,9 +392,10 @@ class Home extends Component {
                             }}
                             onClick={this.launchStation4}
                           >
-                            <div className="pulse" />
+                            <div className="pulse">4</div>
                           </div>
                         ) : null} */}
+                        {/* BACK PULSES */}
                       </div>
 
                       <div
@@ -421,42 +423,42 @@ class Home extends Component {
                           }}
                         />
                         {/* START OF TEMPS*/}
-                        {this.state.step === 3 || !this.state.droll ? (
+                        {this.state.step >= 3 /* || !this.state.droll */ ? (
                           <div
                             className="imacButton"
                             style={{
                               width: "20px",
                               height: "20px",
                               position: "absolute",
-                              top: "90%",
+                              top: "83%",
                               left: "40%",
                               padding: 0,
                               margin: 0,
                             }}
                             onClick={this.launchStation3}
                           >
-                            <div className="pulse" />
+                            <div className="pulse">3</div>
                           </div>
                         ) : null}
-                        {this.state.step === 4 || !this.state.droll ? (
+                        {this.state.step >= 4 /* || !this.state.droll  */ ? (
                           <div
                             className="imacButton"
                             style={{
                               width: "20px",
                               height: "20px",
                               position: "absolute",
-                              top: "89%",
+                              top: "83%",
                               left: "64%",
                               padding: 0,
                               margin: 0,
                             }}
                             onClick={this.launchStation4}
                           >
-                            <div className="pulse" />
+                            <div className="pulse">4</div>
                           </div>
                         ) : null}
                         {/* END OF TEMPS */}
-                        {this.state.step === 1 || !this.state.droll ? (
+                        {this.state.step >= 1 /* || !this.state.droll  */ ? (
                           <div
                             className="imacButton"
                             style={{
@@ -470,10 +472,10 @@ class Home extends Component {
                             }}
                             onClick={this.launchStation1}
                           >
-                            <div className="pulse" />
+                            <div className="pulse">1</div>
                           </div>
                         ) : null}
-                        {this.state.step === 2 || !this.state.droll ? (
+                        {this.state.step >= 2 /* || !this.state.droll  */ ? (
                           <div
                             className="imacButton"
                             style={{
@@ -488,10 +490,10 @@ class Home extends Component {
                             }}
                             onClick={this.launchStation2}
                           >
-                            <div className="pulse" />
+                            <div className="pulse">2</div>
                           </div>
                         ) : null}
-                        {this.state.step === 5 || !this.state.droll ? (
+                        {this.state.step >= 5 /* || !this.state.droll  */ ? (
                           <div
                             className="imacButton"
                             style={{
@@ -505,10 +507,10 @@ class Home extends Component {
                             }}
                             onClick={this.launchStation5}
                           >
-                            <div className="pulse" />
+                            <div className="pulse">5</div>
                           </div>
                         ) : null}
-                        {this.state.step === 6 || !this.state.droll ? (
+                        {this.state.step >= 6 /* || !this.state.droll  */ ? (
                           <div
                             className="imacButton"
                             style={{
@@ -522,7 +524,7 @@ class Home extends Component {
                             }}
                             onClick={this.launchStation6}
                           >
-                            <div className="pulse" />
+                            <div className="pulse">7</div>
                           </div>
                         ) : null}
                         {/*           {this.state.step === 6  || !this.state.droll ? (

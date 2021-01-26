@@ -11,7 +11,6 @@ const content1 = (
     <ul>
       <li>Closed 2013</li>
       <li>109 acres</li>
-      <li>7 years of legal challenges</li>
       <li>Construction began in 2019 on 380 homes</li>
     </ul>
   </>
@@ -96,8 +95,8 @@ const content12 = (
       <li>280 acres</li>
       <li>Proposed Use: Sand Mine</li>
       <li>
-        Future Use: Following 20+ years of mining, new homes and parks will be
-        constructed
+        Future Use: New homes and parks will be constructed when mining is
+        complete in approximately 20 years
       </li>
     </ul>
   </>
@@ -123,8 +122,8 @@ const content15 = (
       <li>Still open!</li>
       <li>165 acres</li>
       <li>
-        Current: 18-hole golf course, with 54 room hotel, clubhouse, event space
-        and driving range
+        Current Use: 18-hole golf course, with 54 room hotel, clubhouse, event
+        space and driving range
       </li>
     </ul>
   </>
@@ -407,6 +406,9 @@ class GolfVideo extends Component {
             >
               Next
             </div>
+            <a href="/" className="backButton transition back">
+              «
+            </a>
             <div
               className="overlay-content-courses"
               ref={this.overlay}
@@ -416,7 +418,6 @@ class GolfVideo extends Component {
                 {eval(`content${this.state.step}`)}
               </div>
             </div>
-
             <video playsInline preload="true" ref={this.course1}>
               <source
                 type="video/mp4"

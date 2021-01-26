@@ -390,6 +390,7 @@ class Exhibit2 extends Component {
               </div>
             </div>
           </div>
+
           <div className="overlay-footer">
             <div className="overlay-logo">
               <img src="images/logo.png" />
